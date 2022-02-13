@@ -8,8 +8,8 @@ class Products(BaseModel):
     category = models.ManyToManyField("Categories")
     price = models.IntegerField()
     discount = models.ForeignKey("Discount", on_delete=models.RESTRICT, null=True, blank=True)
-    image = models.ImageField(upload_to="uploads/" , null=True , blank=True)
-    description = models.TextField()
+    image = models.ImageField(upload_to="uploads/", null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     def final_price(self):
         final_prices = self.price - self.discount.profit_value(self.price) if self.discount else self.price
@@ -36,7 +36,6 @@ class Discount(BaseModel):
         ('price', 'Price'), ('percent', 'Percent')
     ], null=False)
     value = models.PositiveIntegerField()
-    code = models.CharField(max_length=64, null=True, blank=True)
     max_price = models.PositiveIntegerField(null=True, blank=True)
 
     def profit_value(self, price: int):
@@ -47,4 +46,4 @@ class Discount(BaseModel):
             return int(min(raw_profit, int(self.max_price))) if self.max_price else raw_profit
 
     def __str__(self):
-        return f"Type : {self.type} | Value : {self.value} | Code : {self.code}"
+        return f"Type : {self.type} | Value : {self.value}"
