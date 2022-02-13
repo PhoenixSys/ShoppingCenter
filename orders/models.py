@@ -39,4 +39,3 @@ class OrderItem(BaseModel):
     @property
     def get_cost(self):
         return (self.item.final_price()) * self.quantity
-
