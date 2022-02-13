@@ -9,7 +9,7 @@ class TestProductDiscount(TestCase):
         self.discount1 = Discount.objects.create(value=20, type='percent')
         self.discount2 = Discount.objects.create(value=5000, type='price')
         self.discount3 = Discount.objects.create(value=30, type='percent', max_price='10000')
-        self.discount3 = Discount.objects.create(value=30, type='percent', code="eyd1")
+        self.discount3 = Discount.objects.create(value=30, type='percent')
         self.category1 = Categories.objects.create(type="Electronic")
         self.category2 = Categories.objects.create(type="Mobile", discount=self.discount2)
         inst1 = self.product1 = Products.objects.create(name="Samsung A12", price=20000,
@@ -24,4 +24,5 @@ class TestProductDiscount(TestCase):
         self.assertEqual(self.product2.final_price(), 15000)
 
     def test_Categories(self):
-        print(self.product1.category.last().type)
+        self.assertEqual(self.product1.category.last().type, "Mobile")
+        self.assertEqual(self.product2.category.first().type, "Electronic")
