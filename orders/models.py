@@ -25,7 +25,7 @@ class Order(BaseModel):
 
     @property
     def get_total_cost(self):
-        return sum(item.get_cost() for item in self.order_items.all())
+        return sum(item.get_cost for item in self.order_items.all())
 
 
 class OrderItem(BaseModel):
@@ -36,6 +36,7 @@ class OrderItem(BaseModel):
     def __str__(self):
         return f"{self.quantity} * {self.item.name}"
 
-    # @property
-    # def get_cost(self):
-    #     return (self.item.price - self.item.discount) * self.quantity
+    @property
+    def get_cost(self):
+        return (self.item.final_price()) * self.quantity
+
