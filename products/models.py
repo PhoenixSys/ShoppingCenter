@@ -5,7 +5,7 @@ from core.models import BaseModel
 
 class Products(BaseModel):
     name = models.CharField(max_length=64)
-    category = models.ForeignKey("Categories", on_delete=models.RESTRICT)
+    category = models.ManyToManyField("Categories")
     price = models.IntegerField()
     discount = models.ForeignKey("Discount", on_delete=models.RESTRICT)
     image = models.ImageField(upload_to="uploads/")
