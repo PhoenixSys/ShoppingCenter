@@ -24,7 +24,7 @@ class Categories(BaseModel):
     )
 
     def __str__(self):
-        return f"type : {self.type} | parent : {self.parent}"
+        return f"Type : {self.type} | Parent : {self.parent}"
 
 
 class Discount(BaseModel):
@@ -33,4 +33,4 @@ class Discount(BaseModel):
     code = models.CharField(max_length=64, null=True, blank=True)
 
     def __str__(self):
-        return f"type : {self.type} | value : {self.value} | code : {self.code}"
+        return f"Type : {self.type} | Value : {self.value} | Code : {self.code}"

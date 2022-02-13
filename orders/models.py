@@ -12,3 +12,6 @@ class Orders(BaseModel):
     status = models.CharField(max_length=32,
                               choices=(("waiting", "wait for accept admin"), ("sending", "sending to costumer"),
                                        ("received", "received to costumer")))
+
+    def __str__(self):
+        return f"Costumer : {self.costumer} | Item : {self.item}"
