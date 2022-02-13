@@ -1,4 +1,3 @@
-/* Please ❤ this if you like it! */
 (function ($) {
     "use strict";
 
@@ -14,15 +13,9 @@
             }
         });
     });
-
-    //Animation
-
     $(document).ready(function () {
         $('body.hero-anime').removeClass('hero-anime');
     });
-
-    //Menu On Hover
-
     $('body').on('mouseenter mouseleave', '.nav-item', function (e) {
         if ($(window).width() > 750) {
             var _d = $(e.target).closest('.nav-item');
