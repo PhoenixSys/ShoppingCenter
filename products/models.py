@@ -8,7 +8,7 @@ class Products(BaseModel):
     category = models.ManyToManyField("Categories")
     price = models.IntegerField()
     discount = models.ForeignKey("Discount", on_delete=models.RESTRICT, null=True, blank=True)
-    image = models.ImageField(upload_to="uploads/")
+    image = models.ImageField(upload_to="uploads/" , null=True , blank=True)
     description = models.TextField()
 
     def final_price(self):
