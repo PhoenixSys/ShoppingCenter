@@ -7,12 +7,12 @@ class Products(BaseModel):
     name = models.CharField(max_length=64)
     category = models.ManyToManyField("Categories")
     price = models.IntegerField()
-    discount = models.ForeignKey("Discount", on_delete=models.RESTRICT)
+    discount = models.ForeignKey("Discount", on_delete=models.RESTRICT, null=True, blank=True)
     image = models.ImageField(upload_to="uploads/")
     description = models.TextField()
 
     def __str__(self):
-        return f"{self.name} | {self.category} , {self.price}"
+        return f"{self.name} | {self.category} | {self.price}"
 
 
 #
