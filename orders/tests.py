@@ -25,6 +25,9 @@ class TestProductDiscount(TestCase):
         self.order1 = Order.objects.create(costumer=self.costumer1, status=1)
         self.item_order1 = OrderItem.objects.create(order=self.order1, item=self.product1)
         self.item_order2 = OrderItem.objects.create(order=self.order1, item=self.product2)
+        self.order2 = Order.objects.create(costumer=self.costumer1, status=1)
+        self.item_order1 = OrderItem.objects.create(order=self.order2, item=self.product1)
 
     def test_FinalPriceProduct(self):
-        print(self.order1.get_total_cost)
+        self.assertEqual(self.order1.get_total_cost, 31000)
+        self.assertEqual(self.order2.get_total_cost, 16000)
