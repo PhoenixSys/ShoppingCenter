@@ -3,7 +3,13 @@ from django.shortcuts import render
 # Create your views here.
 from django.views import View
 
+from products.models import Products
+
 
 class ProductsView(View):
     def get(self, request):
-        return render(request, "_layout/cards.html")
+        datas = Products.objects.all()
+        context = {
+            "datas": datas
+        }
+        return render(request, "_layout/cards.html", context=context)
