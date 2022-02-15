@@ -7,14 +7,14 @@ $(".send-order").click(function () {
     });
     $.ajax({
         type: "POST",
-        url: "{% url '/customers/test/' %}",
+        url: "{% url 'test1' %}",
         data: json,
         dataType: "json",
         success: function (msg) {
             console.log(msg)
         },
         error: function (msg) {
-            alert("jbkvbwrb");
+            alert("Error !");
         }
     });
 });
