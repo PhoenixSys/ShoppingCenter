@@ -148,27 +148,6 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="{% static '_layout/js/_navbar.js' %}"></script>
     <script src="{% static '_layout/js/order_box.js' %}"></script>
-    <script>
-        var clicked;
-        $(".send-order").click(function () {
-            let ordersValue = cart
-            var json = JSON.stringify(ordersValue);
-            $.ajaxSetup({
-                headers: {"X-CSRFToken": '{{csrf_token}}'}
-            });
-            $.ajax({
-                type: "POST",
-                url: "{% url 'test1' %}",
-                data: json,
-                dataType: "json",
-                success: function (msg) {
-                    console.log(msg)
-                },
-                error: function (msg) {
-                    alert("jbkvbwrb");
-                }
-            });
-        });
-    </script>
+    <script src="{% static '_layout/js/send_cart.js' %}"></script>
 {% endblock %}
 </html>
