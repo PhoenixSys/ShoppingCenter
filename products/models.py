@@ -12,7 +12,7 @@ class Products(BaseModel):
     description = models.TextField(null=True, blank=True)
 
     def final_price(self):
-        final_prices = self.price - self.discount.profit_value(self.price) if self.discount else self.price
+        final_prices = (self.price - self.discount.profit_value(self.price)) if self.discount else self.price
         self.final_price = final_prices
         return final_prices
 
