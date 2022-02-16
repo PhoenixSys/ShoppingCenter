@@ -2,6 +2,7 @@ from django.db import models
 # Create your models here.
 from model_utils import Choices
 from core.models import BaseModel
+from django.utils.translation import gettext_lazy as _
 from customers.models import Costumers
 from products.models import Products
 
@@ -13,9 +14,9 @@ ORDER_STATUS = Choices(
 
 
 class Order(BaseModel):
-    costumer = models.ForeignKey(Costumers, on_delete=models.RESTRICT)
-    status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name='Status')
-    is_paid = models.BooleanField(default=False, verbose_name='Paid')
+    costumer = models.ForeignKey(Costumers, on_delete=models.RESTRICT, verbose_name=_("Costumers"))
+    status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name=_('Status'))
+    is_paid = models.BooleanField(default=False, verbose_name=_('Paid'))
 
     class Meta:
         ordering = ('-created',)
@@ -29,8 +30,8 @@ class Order(BaseModel):
 
 
 class OrderItem(BaseModel):
-    order = models.ForeignKey(Order, related_name='order_items', on_delete=models.CASCADE)
-    item = models.ForeignKey(Products, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, related_name='order_items', on_delete=models.CASCADE, verbose_name=_("Order"))
+    item = models.ForeignKey(Products, on_delete=models.CASCADE, verbose_name=_("Item"))
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
