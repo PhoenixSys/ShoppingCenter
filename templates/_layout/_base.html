@@ -102,12 +102,15 @@
                             <li class="nav-item active">
 
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#cart"><i class="fas fa-shopping-cart"></i> Cart (<span class="total-count"></span>)
+                                        data-target="#cart"><i class="fas fa-shopping-cart"></i> Cart (<span
+                                        class="total-count"></span>)
                                 </button>
 
                             </li>
                             <li class="nav-item">
-                                <button class="clear-cart btn btn-danger"><i class="fa-solid fa-trash-can"></i> Clear Cart</button>
+                                <button class="clear-cart btn btn-danger"><i class="fa-solid fa-trash-can"></i> Clear
+                                    Cart
+                                </button>
                             </li>
 
                         </ul>
@@ -155,6 +158,27 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="{% static '_layout/js/_navbar.js' %}"></script>
     <script src="{% static '_layout/js/order_box.js' %}"></script>
-    <script src="{% static '_layout/js/send_cart.js' %}"></script>
+    <script>
+        var clicked;
+        $(".send-order").click(function () {
+            let ordersValue = cart
+            var json = JSON.stringify(ordersValue);
+            $.ajaxSetup({
+                headers: {"X-CSRFToken": '{{csrf_token}}'}
+            });
+            $.ajax({
+                type: "POST",
+                url: "{% url 'home' %}",
+                data: json,
+                dataType: "json",
+                success: function (msg) {
+                    alert(msg)
+                },
+                error: function (msg) {
+                    alert(msg);
+                }
+            });
+        });
+    </script>
 {% endblock %}
 </html>

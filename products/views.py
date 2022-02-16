@@ -13,3 +13,7 @@ class ProductsView(View):
             "datas": datas
         }
         return render(request, "_layout/cards.html", context=context)
+
+    def post(self, request):
+        print(request.POST)
+        return request.POST[0]["name"]
