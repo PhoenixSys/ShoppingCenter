@@ -20,6 +20,8 @@ class Order(BaseModel):
 
     class Meta:
         ordering = ('-created',)
+        verbose_name = _("Order")
+        verbose_name_plural = _("Orders")
 
     def __str__(self):
         return f'Order {self.id} status :{self.status} '
@@ -33,6 +35,10 @@ class OrderItem(BaseModel):
     order = models.ForeignKey(Order, related_name='order_items', on_delete=models.CASCADE, verbose_name=_("Order"))
     item = models.ForeignKey(Products, on_delete=models.CASCADE, verbose_name=_("Item"))
     quantity = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        verbose_name = _("OrderItem")
+        verbose_name_plural = _("OrderItems")
 
     def __str__(self):
         return f"{self.quantity} * {self.item.name}"
