@@ -25,7 +25,7 @@ class Costumers(BaseModel):
     f_name = models.CharField(max_length=64, verbose_name=_("First Name"))
     l_name = models.CharField(max_length=64, verbose_name=_("Last Name"))
     phone = models.CharField(max_length=16, unique=True, verbose_name=_("Phone"))
-    email = models.CharField(max_length=64, unique=True, validators=[EmailValidator], verbose_name=_("Email"))
+    email = models.EmailField(max_length=64, unique=True, validators=[EmailValidator], verbose_name=_("Email"))
 
     class Meta:
         verbose_name = _("Costumer")
