@@ -1,4 +1,5 @@
 # Create your models here.
+from django.contrib.auth.models import AbstractUser, UserManager
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -47,3 +48,17 @@ class BaseModel(models.Model):
     def activate(self):
         self.is_active = True
         self.save()
+
+
+class BaseUserManager(UserManager):
+
+    def create_superuser(self, username=None, email=None, password=None, **extra_fields):
+        username = extra_fields["phone"]
+        return super().create_superuser(username, email, password, **extra_fields)
+
+
+class User(AbstractUser):
+    phone = models.CharField(max_length=11, unique=True)
+
+    objects = BaseUserManager()
+    USERNAME_FIELD = "phone"
