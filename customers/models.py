@@ -13,7 +13,7 @@ class Addresses(BaseModel):
 
     class Meta:
         verbose_name = _("Address")
-        verbose_name_plural = _("Address")
+        verbose_name_plural = _("Addresses")
 
     def __str__(self):
         return f"Costumer : {self.costumer} | City : {self.city}"
