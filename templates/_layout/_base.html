@@ -161,11 +161,11 @@
     <script>
         var clicked;
         $(".send-order").click(function () {
-            let ordersValue = cart
-            var json = JSON.stringify(ordersValue);
             $.ajaxSetup({
                 headers: {"X-CSRFToken": '{{csrf_token}}'}
             });
+            let ordersValue = cart
+            var json = JSON.stringify(ordersValue);
             $.ajax({
                 type: "POST",
                 url: "{% url 'home' %}",
