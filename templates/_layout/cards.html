@@ -6,7 +6,9 @@
                 {% for data in datas %}
                     <div class="row p-2 bg-white border rounded">
                         <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
-                                                        src="{{ data.image.url }}"></div>
+                                                        src="{{ data.image.url }}"
+                                                        style="height:260px ; width:200px ;background-size: cover;">
+                        </div>
                         <div class="col-md-6 mt-1">
                             <h5>{{ data.name }}</h5>
                             <div class="d-flex flex-row">
@@ -14,13 +16,13 @@
                                         class="fa fa-star"></i><i class="fa fa-star"></i></div>
                                 <span>Likes</span>
                             </div>
-                            <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span
-                                    class="dot"></span><span>Best finish<br></span></div>
-                            <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span
-                                    class="dot"></span><span>For men</span><span
-                                    class="dot"></span><span>Casual<br></span>
+                            <div class="mt-1 mb-1 spec-1">
+                                {% for category in data.category.all %}
+                                    <span class="dot"></span><span>{{ category.type }}</span>
+                                {% endfor %}
                             </div>
-                            <p class="text-justify text-truncate para mb-0">{{ data.description }}<br><br></p>
+                            <h4 class="text-justify text-truncate para mb-0"><i
+                                    class="fas fa-info-circle"></i> {{ data.description }}<br><br></h4>
                         </div>
                         <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                             <div class="d-flex flex-row align-items-center">
@@ -46,7 +48,6 @@
                                     </button>
                                 </div>
                             {% endif %}
-
                         </div>
                     </div>
                 {% endfor %}
