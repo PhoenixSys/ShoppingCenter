@@ -11,6 +11,10 @@ class Addresses(BaseModel):
     city = models.CharField(max_length=64, verbose_name=_("City"))
     postal_code = models.IntegerField(unique=True, verbose_name=_("PostalCode"))
 
+    class Meta:
+        verbose_name = _("Address")
+        verbose_name_plural = _("Address")
+
     def __str__(self):
         return f"Costumer : {self.costumer} | City : {self.city}"
 
@@ -22,6 +26,10 @@ class Costumers(BaseModel):
     l_name = models.CharField(max_length=64, verbose_name=_("Last Name"))
     phone = models.CharField(max_length=16, unique=True, verbose_name=_("Phone"))
     email = models.CharField(max_length=64, unique=True, validators=[EmailValidator], verbose_name=_("Email"))
+
+    class Meta:
+        verbose_name = _("Costumer")
+        verbose_name_plural = _("Costumers")
 
     def __str__(self):
         return f"Username : {self.username} | Phone : {self.phone}"
