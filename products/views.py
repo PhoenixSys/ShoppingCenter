@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 import json
 # Create your views here.
@@ -21,4 +21,6 @@ class ProductsView(View):
         product_price = data[0]["price"]
         product_count = data[0]["count"]
         print(product_name, product_price, product_count)
-        return HttpResponse("ok", 200)
+        response = JsonResponse({"status_code": 200})
+        response.status_code = 200
+        return response
