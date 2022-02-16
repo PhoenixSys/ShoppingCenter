@@ -13,6 +13,10 @@ class Products(BaseModel):
     image = models.ImageField(upload_to="uploads/", null=True, blank=True, verbose_name=_("Image"))
     description = models.TextField(null=True, blank=True, verbose_name=_("Description"))
 
+    class Meta:
+        verbose_name = _("Product")
+        verbose_name_plural = _("Products")
+
     def final_price(self):
         final_prices = (self.price - self.discount.profit_value(self.price)) if self.discount else self.price
         self.final_price = final_prices
@@ -33,6 +37,10 @@ class Categories(BaseModel):
     def __str__(self):
         return f"Type : {self.type} | Parent : {self.parent}"
 
+    class Meta:
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
+
 
 class Discount(BaseModel):
     type = models.CharField(max_length=10, choices=[
@@ -50,3 +58,7 @@ class Discount(BaseModel):
 
     def __str__(self):
         return f"Type : {self.type} | Value : {self.value}"
+
+    class Meta:
+        verbose_name = _("Discount")
+        verbose_name_plural = _("Discounts")
