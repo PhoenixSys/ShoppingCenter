@@ -9,7 +9,7 @@ class Addresses(BaseModel):
     costumer = models.ForeignKey("Costumers", on_delete=models.RESTRICT, verbose_name=_("Costumer"))
     state = models.CharField(max_length=64, verbose_name=_("State"))
     city = models.CharField(max_length=64, verbose_name=_("City"))
-    postal_code = models.IntegerField(verbose_name=_("PostalCode"))
+    postal_code = models.IntegerField(unique=True, verbose_name=_("PostalCode"))
 
     def __str__(self):
         return f"Costumer : {self.costumer} | City : {self.city}"
