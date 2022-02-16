@@ -4,7 +4,7 @@ from core.models import BaseModel
 
 
 class Products(BaseModel):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True)
     category = models.ManyToManyField("Categories")
     price = models.IntegerField()
     discount = models.ForeignKey("Discount", on_delete=models.RESTRICT, null=True, blank=True)
