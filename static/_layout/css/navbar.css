@@ -61,7 +61,7 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #818181;
+    background: #3a5b73;
     color: #fff;
     transition: all 0.3s;
 }
@@ -72,7 +72,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #505050;
+    background: #232f3e;
 }
 
 #sidebar ul.components {
@@ -117,7 +117,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #50505061;
+    background: rgba(136, 136, 136, 0.38);
 }
 
 ul.CTAs {
@@ -139,7 +139,7 @@ a.download {
 
 a.article,
 a.article:hover {
-    background: #a9a9ac !important;
+    background: #232f3e !important;
     color: #fff !important;
 }
 
