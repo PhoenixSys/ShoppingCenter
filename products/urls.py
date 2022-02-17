@@ -4,5 +4,6 @@ from products.views import ProductsView
 
 urlpatterns = [
     path('', ProductsView.as_view(), name="home"),
+    # path('api/', ProductApi, name="ProductApi"),
 
 ]
