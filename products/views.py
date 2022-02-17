@@ -4,8 +4,11 @@ import json
 # Create your views here.
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from products.models import Products
+from products.serializer import ProductSerializer
 
 
 class ProductsView(View):
@@ -26,21 +29,19 @@ class ProductsView(View):
         response.status_code = 200
         return response
 
-# @csrf_exempt
-# def ProductApi(request):
-#     if request.method == "GET":
-#         product_ser = ProductSerializer(instance=Products.objects.all(), many=True)
-#         print(product_ser)
-#         print(product_ser.data)
-#         return JsonResponse({'data': product_ser.data}, status=200)
-#
-#     if request.method == "POST":
-#         data = request.POST
-#         product_ser = ProductSerializer(data=data)
-#         if product_ser.is_valid():
-#             new_product = product_ser.save()
-#             return JsonResponse({'obj': new_product.id}, status=201)
-#         else:
-#             return JsonResponse({"error : ": product_ser.errors}, status=400)
-#     else:
-#         return JsonResponse({}, status=400)
+
+class ProductApi(APIView):
+    def get(self, request):
+        product_ser = ProductSerializer(instance=Products.objects.all(), many=True)
+        print(product_ser)
+        print(product_ser.data)
+        return Response(product_ser.data, status=200)
+
+    def post(self, request):
+        data = request.POST
+        product_ser = ProductSerializer(data=data)
+        if product_ser.is_valid():
+            new_product = product_ser.save()
+            return Response(new_product.id, status=201)
+        else:
+            return JsonResponse(product_ser.errors, status=400)
