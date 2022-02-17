@@ -1,12 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 import json
-# Create your views here.
 from django.views import View
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 from products.models import Products
 from products.serializer import ProductSerializer
 
@@ -43,3 +41,8 @@ class ProductApi(APIView):
             return Response(new_product.id, status=201)
         else:
             return JsonResponse(product_ser.errors, status=400)
+
+
+class ProductApiSammi(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ProductSerializer
+    queryset = Products.objects.all()
