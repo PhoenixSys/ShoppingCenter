@@ -1,4 +1,5 @@
 # Create your models here.
+from django.core.validators import MaxLengthValidator
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 from core.models import BaseModel
@@ -46,7 +47,7 @@ class Discount(BaseModel):
     type = models.CharField(max_length=10, choices=[
         ('price', 'Price'), ('percent', 'Percent')
     ], null=False, verbose_name=_("Type"))
-    value = models.PositiveIntegerField(verbose_name=_("Value"))
+    value = models.PositiveIntegerField(validators=[MaxLengthValidator(2)], verbose_name=_("Value"))
     max_price = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("Max_Price"))
 
     def profit_value(self, price: int):
