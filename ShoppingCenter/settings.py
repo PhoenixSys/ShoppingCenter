@@ -31,7 +31,6 @@ JAZZMIN_SETTINGS = {
     "show_ui_builder": "True"
 }
 INSTALLED_APPS = [
-    "jazzmin",
     "rosetta",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "rest_framework",
     "customers",
     "orders",
     "products",
@@ -110,12 +110,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 
-LANGUAGE_CODE = 'en'
 LANGUAGES = (
     ('en', 'English'),
     ('fa', 'Farsi'),
 )
 LOCALE_PATHS = (BASE_DIR / 'locale',)
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
