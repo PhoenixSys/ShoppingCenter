@@ -10,7 +10,7 @@
                                                         style="height:260px ; width:200px ;background-size: cover;">
                         </div>
                         <div class="col-md-6 mt-1">
-                            <h5>{{ data.name|underline_to_space }}</h5>
+                            <h5>{{ data.name }}</h5>
                             <div class="d-flex flex-row">
                                 <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                         class="fa fa-star"></i><i class="fa fa-star"></i></div>
@@ -34,7 +34,7 @@
                                 <div class="d-flex flex-column mt-4">
                                     <a class="btn btn-primary btn-sm text-white" type="button">Details</a>
                                     <button class="add-to-cart btn btn-outline-primary btn-sm mt-2" href="#"
-                                            data-name="{{ data.name }}"
+                                            data-name="{{ data.name|space_to_underline }}"
                                             data-price="{{ data.final_price }}" type="button">Add to cart
                                     </button>
                                 </div>
