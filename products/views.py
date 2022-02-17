@@ -33,8 +33,6 @@ class ProductsView(View):
 class ProductApi(APIView):
     def get(self, request):
         product_ser = ProductSerializer(instance=Products.objects.all(), many=True)
-        print(product_ser)
-        print(product_ser.data)
         return Response(product_ser.data, status=200)
 
     def post(self, request):
