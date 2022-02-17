@@ -19,13 +19,15 @@ class ProductSerializer(serializers.Serializer):
     description = serializers.CharField(max_length=128)
 
     def create(self, validated_data):
+        print(validated_data["category"])
         return Products.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.name = validated_data.get("name")
-        instance.category = validated_data.get("category")
+        # instance.category = validated_data.get("category")
         instance.image = validated_data.get("image")
         instance.price = validated_data.get("price")
         instance.discount = validated_data.get("discount")
         instance.description = validated_data.get("description")
-        return instance.save()
+        instance.save()
+        return instance
