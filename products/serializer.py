@@ -4,8 +4,6 @@ from products.models import Discount, Products, Categories
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    authors = serializers.PrimaryKeyRelatedField(queryset=Categories.objects.all(), many=True)
-
     class Meta:
         model = Categories
         fields = "__all__"
@@ -16,7 +14,8 @@ class ProductSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=64)
     price = serializers.IntegerField()
     category = CategorySerializer(many=True, read_only=True)
-    discount = serializers.PrimaryKeyRelatedField(queryset=Discount.objects.all(), many=True)
+    discount = serializers.PrimaryKeyRelatedField(queryset=Discount.objects.all())
+    image = serializers.ImageField()
     description = serializers.CharField(max_length=128)
 
     def create(self, validated_data):
@@ -25,6 +24,8 @@ class ProductSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         instance.name = validated_data.get("name")
         instance.category = validated_data.get("category")
+        instance.image = validated_data.get("image")
         instance.price = validated_data.get("price")
+        instance.discount = validated_data.get("discount")
         instance.description = validated_data.get("description")
-        instance.save()
+        return instance.save()
