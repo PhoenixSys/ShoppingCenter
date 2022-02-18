@@ -36,3 +36,8 @@ class ContactView(View):
         except Exception as e:
             messages.add_message(request, messages.ERROR, f"ERROR | {e}")
         return redirect("contact")
+
+
+class AboutUs(View):
+    def get(self, request):
+        return render(request, "contact/AboutUs.html")
