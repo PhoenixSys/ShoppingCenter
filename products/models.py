@@ -29,8 +29,6 @@ class Products(BaseModel):
 
 class Categories(BaseModel):
     type = models.CharField(max_length=64, verbose_name=_("Type"))
-    discount = models.ForeignKey("Discount", on_delete=models.RESTRICT, null=True, blank=True,
-                                 verbose_name=_("Discount"))
     parent = models.ForeignKey(
         "Categories", related_name="categories", null=True, blank=True, on_delete=models.CASCADE
         , verbose_name=_("Parent"))
