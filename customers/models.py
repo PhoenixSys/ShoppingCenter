@@ -6,7 +6,7 @@ from core.models import BaseModel, User
 
 
 class Addresses(BaseModel):
-    costumer = models.ForeignKey("Costumers", on_delete=models.SET_NULL, verbose_name=_("Costumer"))
+    costumer = models.ForeignKey("Costumers", on_delete=models.CASCADE, verbose_name=_("Costumer"))
     state = models.CharField(max_length=64, verbose_name=_("State"))
     city = models.CharField(max_length=64, verbose_name=_("City"))
     postal_code = models.IntegerField(unique=True, verbose_name=_("PostalCode"))
