@@ -61,12 +61,16 @@
     {% for category in categories %}
         {% if category.parent == None %}
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                <a href="#pageSubcat" data-toggle="collapse" aria-expanded="false"
                    class="dropdown-toggle">{{ category.type }}</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">{{ category.type }}</a>
-                    </li>
+                <ul class="collapse list-unstyled" id="pageSubcat">
+                    {% for cat in categories %}
+                        {% if cat.parent.type == category.type %}
+                            <li>
+                                <a href="#">{{ cat.type }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
             </li>
         {% endif %}
