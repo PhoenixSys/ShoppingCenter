@@ -5,15 +5,17 @@ from django.views import View
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from products.models import Products
+from products.models import Products, Categories
 from products.serializer import ProductSerializer
 
 
 class ProductsView(View):
     def get(self, request):
         datas = Products.objects.all()
+        categories = Categories.objects.all()
         context = {
-            "datas": datas
+            "datas": datas,
+            "categories": categories
         }
         return render(request, "_layout/cards.html", context=context)
 

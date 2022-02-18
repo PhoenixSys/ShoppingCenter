@@ -1,57 +1,78 @@
 {% extends "_layout/_base.html" %}
 {% block main %}
-    <div class="container mt-5 mb-5">
-        <div class="d-flex justify-content-center row">
-            <div class="col-md-10">
-                {% for data in datas %}
-                    <div class="row p-2 bg-white border rounded">
-                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
-                                                        src="{{ data.image.url }}"
-                                                        style="height:260px ; width:200px ;background-size: cover;">
-                        </div>
-                        <div class="col-md-6 mt-1">
-                            <h5>{{ data.name }}</h5>
-                            <div class="d-flex flex-row">
-                                <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                        class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                                <span>Likes</span>
+    <div id="myDIV">
+        <div class="container mt-5 mb-5">
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-10">
+                    {% for data in datas %}
+                        <div class="row p-2 bg-white border rounded">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="{{ data.image.url }}"
+                                                            style="height:260px ; width:200px ;background-size: cover;">
                             </div>
-                            <div class="mt-1 mb-1 spec-1">
-                                {% for category in data.category.all %}
-                                    <span class="dot"></span><span>{{ category.type }}</span>
-                                {% endfor %}
-                            </div>
-                            <h4 class="text-justify text-truncate para mb-0"><i
-                                    class="fas fa-info-circle"></i> {{ data.description }}<br><br></h4>
-                        </div>
-                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                            <div class="d-flex flex-row align-items-center">
-                                <h4 class="mr-1">${{ data.final_price }}</h4><span
-                                    class="strike-text">${{ data.price }}</span>
-                            </div>
-                            {% if data.is_active == True %}
-                                <h6 class="text-success">Available</h6>
-                                <div class="d-flex flex-column mt-4">
-                                    <a class="btn btn-primary btn-sm text-white" type="button">Details</a>
-                                    <button class="add-to-cart btn btn-outline-primary btn-sm mt-2" href="#"
-                                            data-name="{{ data.name|space_to_underline }}"
-                                            data-price="{{ data.final_price }}" type="button">Add to cart
-                                    </button>
+                            <div class="col-md-6 mt-1">
+                                <h5>{{ data.name }}</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>Likes</span>
                                 </div>
-                            {% else %}
-                                <h6 class="text-danger">Unavailable</h6>
-                                <div class="d-flex flex-column mt-4">
-                                    <a class="btn btn-primary btn-sm text-white" type="button">Details</a>
-                                    <button class="btn btn-outline-danger btn-sm mt-2" href="#"
-                                            data-name="{{ data.name }}"
-                                            data-price="{{ data.final_price }}" type="button">Unavailable
-                                    </button>
+                                <div class="mt-1 mb-1 spec-1">
+                                    {% for category in data.category.all %}
+                                        <span class="dot"></span><span>{{ category.type }}</span>
+                                    {% endfor %}
                                 </div>
-                            {% endif %}
+                                <h4 class="text-justify text-truncate para mb-0"><i
+                                        class="fas fa-info-circle"></i> {{ data.description }}<br><br></h4>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">${{ data.final_price }}</h4><span
+                                        class="strike-text">${{ data.price }}</span>
+                                </div>
+                                {% if data.is_active == True %}
+                                    <h6 class="text-success">Available</h6>
+                                    <div class="d-flex flex-column mt-4">
+                                        <a class="btn btn-primary btn-sm text-white" type="button">Details</a>
+                                        <button class="add-to-cart btn btn-outline-primary btn-sm mt-2" href="#"
+                                                data-name="{{ data.name|space_to_underline }}"
+                                                data-price="{{ data.final_price }}" type="button">Add to cart
+                                        </button>
+                                    </div>
+                                {% else %}
+                                    <h6 class="text-danger">Unavailable</h6>
+                                    <div class="d-flex flex-column mt-4">
+                                        <a class="btn btn-primary btn-sm text-white" type="button">Details</a>
+                                        <button class="btn btn-outline-danger btn-sm mt-2" href="#"
+                                                data-name="{{ data.name }}"
+                                                data-price="{{ data.final_price }}" type="button">Unavailable
+                                        </button>
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
+{% endblock %}
+{% block category %}
+    {% for category in categories %}
+        {% if category.parent == None %}
+            <li>
+                <a href="#pageSubcat" data-toggle="collapse" aria-expanded="false"
+                   class="dropdown-toggle">{{ category.type }}</a>
+                <ul class="collapse list-unstyled" id="pageSubcat">
+                    {% for cat in categories %}
+                        {% if cat.parent.type == category.type %}
+                            <li>
+                                <a href="#">{{ cat.type }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+    {% endfor %}
 {% endblock %}
