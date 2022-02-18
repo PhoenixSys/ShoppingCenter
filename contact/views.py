@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.messages import get_messages
+from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -25,6 +26,13 @@ class ContactView(View):
         try:
             ContactUs.objects.create(name=name, email=email, text=text)
             messages.add_message(request, messages.SUCCESS, "SUCCESS")
-        except:
-            messages.add_message(request, messages.ERROR, "ERROR")
+            send_mail(
+                'Configuration !',
+                'Your Message Received !',
+                from_email=None,
+                recipient_list=[f"{email}"],
+                fail_silently=False,
+            )
+        except Exception as e:
+            messages.add_message(request, messages.ERROR, f"ERROR | {e}")
         return redirect("contact")
