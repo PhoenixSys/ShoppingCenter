@@ -25,7 +25,6 @@ class ContactView(View):
         text = data.get("text")
         try:
             ContactUs.objects.create(name=name, email=email, text=text)
-            messages.add_message(request, messages.SUCCESS, "SUCCESS")
             send_mail(
                 'Configuration !',
                 'Your Message Received !',
@@ -33,6 +32,7 @@ class ContactView(View):
                 recipient_list=[f"{email}"],
                 fail_silently=False,
             )
+            messages.add_message(request, messages.SUCCESS, "SUCCESS")
         except Exception as e:
             messages.add_message(request, messages.ERROR, f"ERROR | {e}")
         return redirect("contact")
