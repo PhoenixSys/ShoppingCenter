@@ -26,8 +26,8 @@ class ContactView(View):
         try:
             ContactUs.objects.create(name=name, email=email, text=text)
             send_mail(
-                'Configuration !',
-                'Your Message Received !',
+                'Congratulations !',
+                f'Dare {name} , Your Message Received !\nBest Regards',
                 from_email=None,
                 recipient_list=[f"{email}"],
                 fail_silently=False,
