@@ -19,11 +19,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from contact.views import ContactView, AboutUs
+
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include("products.urls")),
     path('customers/', include("customers.urls")),
-    path('contact/', include("contact.urls")),
+    path('conatct_us/', ContactView.as_view(), name="contact"),
+    path('about_us/', AboutUs.as_view(), name="about"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('rosseta/', include('rosetta.urls')),
     prefix_default_language=True,
