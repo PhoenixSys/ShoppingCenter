@@ -1,0 +1,41 @@
+{% extends '_layout/_base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'customers/css/register_login_page.css' %}">
+{% endblock %}
+{% block main %}
+    <div class="form-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
+                    <div class="form-container">
+                        <div class="form-icon">
+                            <i class="fa fa-user-circle"></i>
+                            <span class="signup"><a href="">Don't have account? Signup</a></span>
+                        </div>
+                        <form class="form-horizontal">
+                            <h3 class="title">Member Login</h3>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                                <input class="form-control" type="email" placeholder="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <span class="input-icon"><i class="fa fa-lock"></i></span>
+                                <input class="form-control" type="password" placeholder="Password">
+                            </div>
+                            <button class="btn signin">Login</button>
+                            <span class="forgot-pass"><a href="#">Forgot Username/Password?</a></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block afterbody %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="{% static '_layout/js/_navbar.js' %}"></script>
+    <script src="{% static '_layout/js/order_box.js' %}"></script>
+{% endblock %}
+

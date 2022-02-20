@@ -1,6 +1,8 @@
-from rest_framework import generics
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.shortcuts import render
+from django.views import View
 
-from core.models import User
-from customers.models import Costumers
+
+class RegisterLoginView(View):
+    def get(self, request):
+        return render(request, "customers/register_login_page.html")
