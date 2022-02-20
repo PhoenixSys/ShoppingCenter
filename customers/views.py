@@ -22,3 +22,17 @@ class RegisterLoginView(View):
         costumer = Costumers.objects.create(user=user)
         print(costumer.id)
         return redirect("register")
+
+
+class Profile(PermissionRequiredMixin, View):
+    permission_required = ["authenticated"]
+
+    def get(self, request):
+        categories = Categories.objects.all()
+
+        user = request.user
+        context = {
+            "userInfo": user,
+            "categories": categories
+        }
+        return render(request, "customers/profile.html", context=context)
