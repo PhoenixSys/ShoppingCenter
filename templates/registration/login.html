@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <a href="{% url 'admin_password_reset' %}">reset password ?</a>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
