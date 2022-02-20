@@ -6,15 +6,17 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views import View
-
 from contact.models import ContactUs
+from products.models import Categories
 
 
 class ContactView(View):
     def get(self, request):
         message = get_messages(request)
+        categories = Categories.objects.all()
         context = {
-            "messages": message
+            "messages": message,
+            "categories": categories
         }
         return render(request, "contact/ContactUs.html", context=context)
 
@@ -40,4 +42,8 @@ class ContactView(View):
 
 class AboutUs(View):
     def get(self, request):
-        return render(request, "contact/AboutUs.html")
+        categories = Categories.objects.all()
+        context = {
+            "categories": categories
+        }
+        return render(request, "contact/AboutUs.html", context=context)
