@@ -60,11 +60,10 @@
                                                                                                      name="phone"></div>
                             <div class="col-md-12"><label class="labels">Default Address</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="default_address">
-                                    <option value="test address">1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    {% for address in addresses %}
+                                        <option value="{{ address.id }}">{{ address.state }} | {{ address.city }}
+                                            | {{ address.postal_code }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="col-md-12"><label class="labels">Postcode</label><input type="text"

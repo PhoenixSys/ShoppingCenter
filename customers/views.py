@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.views import View
 from core.models import User
-from customers.models import Costumers
+from customers.models import Costumers, Addresses
 from products.models import Categories
 
 
@@ -43,12 +43,14 @@ class Profile(PermissionRequiredMixin, View):
     permission_required = ["core.authenticated"]
 
     def get(self, request):
-        categories = Categories.objects.all()
-
         user = request.user
+        categories = Categories.objects.all()
+        costumers = Costumers.objects.get(user_id=user.id)
+        addresses = Addresses.objects.filter(costumer_id=costumers.id).all()
         context = {
             "userInfo": user,
-            "categories": categories
+            "categories": categories,
+            "addresses": addresses
         }
         return render(request, "customers/profile.html", context=context)
 
@@ -56,4 +58,5 @@ class Profile(PermissionRequiredMixin, View):
         data = request.POST
         print(data)
         print(data["first_name"])
+        print(data["default_address"])
         return redirect("home")
