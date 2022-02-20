@@ -29,7 +29,8 @@
                                 <input class="form-control" name="password" type="password" placeholder="Password">
                             </div>
                             <button class="btn signin">Register</button>
-                            <span class="forgot-pass"><a href="#" style="color: black !important;">Forgot Password?</a></span>
+                            <span class="forgot-pass"><a href="{% url 'admin_password_reset' %}"
+                                                         style="color: black !important;">Forgot Password?</a></span>
                         </form>
                     </div>
                 </div>
