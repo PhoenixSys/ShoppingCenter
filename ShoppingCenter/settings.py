@@ -32,6 +32,7 @@ JAZZMIN_SETTINGS = {
     "show_ui_builder": "True"
 }
 INSTALLED_APPS = [
+    # add text to rosetta : ==> python manage.py makemessages -l en -i venv
     "rosetta",
     "admin_volt.apps.AdminVoltConfig",
     'django.contrib.admin',
