@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.contrib.auth.views import LoginView
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,8 +28,9 @@ urlpatterns = i18n_patterns(
     path('conatct_us/', ContactView.as_view(), name="contact"),
     path('about_us/', AboutUs.as_view(), name="about"),
     path('costumers/', include('customers.urls')),
+    path('login/', LoginView.as_view(), name="login"),
     # api and rosseta
-    path('api/v1/product/', include('products.urls')),
+    # path('api/v1/product/', include('products.urls')),
     # path('api/v1/order/', include('orders.urls')),
     path('rosseta/', include('rosetta.urls')),
     # account
