@@ -52,6 +52,8 @@ class Profile(PermissionRequiredMixin, View):
         }
         return render(request, "customers/profile.html", context=context)
 
-    def post(self , request):
+    def post(self, request):
         data = request.POST
-        print(data[""])
+        print(data)
+        print(data["first_name"])
+        return redirect("home")
