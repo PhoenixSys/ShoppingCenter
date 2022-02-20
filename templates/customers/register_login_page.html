@@ -14,6 +14,7 @@
                             <span class="signup"><a href="">Don't have account? Signup</a></span>
                         </div>
                         <form method="POST" class="form-horizontal">
+                            {% csrf_token %}
                             <h3 class="title">Member Login</h3>
                             <div class="form-group">
                                 <span class="input-icon"><i class="fa fa-envelope"></i></span>
