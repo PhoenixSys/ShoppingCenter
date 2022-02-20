@@ -51,3 +51,7 @@ class Profile(PermissionRequiredMixin, View):
             "categories": categories
         }
         return render(request, "customers/profile.html", context=context)
+
+    def post(self , request):
+        data = request.POST
+        print(data[""])

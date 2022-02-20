@@ -26,24 +26,28 @@
                                 <div class="col-md-6"><label class="labels">Name</label><input type="text"
                                                                                                class="form-control"
                                                                                                placeholder="{{ userInfo.first_name }}"
-                                                                                               value=""></div>
+                                                                                               value=""
+                                                                                               name="first_name"></div>
                             {% else %}
                                 <div class="col-md-6"><label class="labels">Name</label><input type="text"
                                                                                                class="form-control"
                                                                                                placeholder="First Name"
-                                                                                               value=""></div>
+                                                                                               value=""
+                                                                                               name="first_name"></div>
                             {% endif %}
                             {% if userInfo.last_name %}
                                 <div class="col-md-6"><label class="labels">Surname</label><input type="text"
                                                                                                   class="form-control"
                                                                                                   value=""
-                                                                                                  placeholder="{{ userInfo.last_name }}">
+                                                                                                  placeholder="{{ userInfo.last_name }}"
+                                                                                                  name="last_name">
                                 </div>
                             {% else %}
                                 <div class="col-md-6"><label class="labels">Surname</label><input type="text"
                                                                                                   class="form-control"
                                                                                                   value=""
-                                                                                                  placeholder="surname">
+                                                                                                  placeholder="surname"
+                                                                                                  name="last_name">
                                 </div>
                             {% endif %}
 
