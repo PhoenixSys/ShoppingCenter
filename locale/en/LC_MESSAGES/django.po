@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-16 18:45+0000\n"
+"POT-Creation-Date: 2022-02-20 13:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "This is active status"
 msgstr ""
 
-#: customers/models.py:9 customers/models.py:33
+#: customers/models.py:9 customers/models.py:27
 msgid "Costumer"
 msgstr ""
 
@@ -58,122 +58,154 @@ msgstr ""
 msgid "PostalCode"
 msgstr ""
 
-#: customers/models.py:15
+#: customers/models.py:16 orders/models.py:18
 msgid "Address"
 msgstr ""
 
-#: customers/models.py:16
+#: customers/models.py:17
 msgid "Addresses"
 msgstr ""
 
-#: customers/models.py:23
-msgid "Username"
-msgstr ""
-
-#: customers/models.py:24
-msgid "Password"
-msgstr ""
-
-#: customers/models.py:25
-msgid "First Name"
-msgstr ""
-
-#: customers/models.py:26
-msgid "Last Name"
-msgstr ""
-
-#: customers/models.py:27
-msgid "Phone"
-msgstr ""
-
-#: customers/models.py:30
-msgid "Email"
-msgstr ""
-
-#: customers/models.py:34 orders/models.py:17
+#: customers/models.py:28 orders/models.py:17
 msgid "Costumers"
 msgstr ""
 
-#: orders/models.py:18
+#: orders/models.py:19
 msgid "Status"
 msgstr ""
 
-#: orders/models.py:19
+#: orders/models.py:20
 msgid "Paid"
 msgstr ""
 
-#: orders/models.py:23 orders/models.py:35
+#: orders/models.py:24 orders/models.py:36
 msgid "Order"
 msgstr ""
 
-#: orders/models.py:24
+#: orders/models.py:25
 msgid "Orders"
 msgstr ""
 
-#: orders/models.py:36
+#: orders/models.py:37
 msgid "Item"
 msgstr ""
 
-#: orders/models.py:40
+#: orders/models.py:41
 msgid "OrderItem"
 msgstr ""
 
-#: orders/models.py:41
+#: orders/models.py:42
 msgid "OrderItems"
 msgstr ""
 
-#: products/models.py:8
+#: products/models.py:9
 msgid "Name"
 msgstr ""
 
-#: products/models.py:9 products/models.py:41
+#: products/models.py:10 products/models.py:40
 msgid "Category"
 msgstr ""
 
-#: products/models.py:10
+#: products/models.py:11
 msgid "Price"
 msgstr ""
 
-#: products/models.py:12 products/models.py:32 products/models.py:63
+#: products/models.py:13 products/models.py:62
 msgid "Discount"
 msgstr ""
 
-#: products/models.py:13
+#: products/models.py:14
 msgid "Image"
 msgstr ""
 
-#: products/models.py:14
+#: products/models.py:15
 msgid "Description"
 msgstr ""
 
-#: products/models.py:17
+#: products/models.py:18
 msgid "Product"
 msgstr ""
 
-#: products/models.py:18
+#: products/models.py:19
 msgid "Products"
 msgstr ""
 
-#: products/models.py:30 products/models.py:48
+#: products/models.py:31 products/models.py:47
 msgid "Type"
 msgstr ""
 
-#: products/models.py:35
+#: products/models.py:34
 msgid "Parent"
 msgstr ""
 
-#: products/models.py:42
+#: products/models.py:41 templates/_layout/_base.html:43
 msgid "Categories"
 msgstr ""
 
-#: products/models.py:49
+#: products/models.py:48
 msgid "Value"
 msgstr ""
 
-#: products/models.py:50
+#: products/models.py:49
 msgid "Max_Price"
 msgstr ""
 
-#: products/models.py:64
+#: products/models.py:63
 msgid "Discounts"
+msgstr ""
+
+#: templates/_layout/_base.html:36
+msgid "Home"
+msgstr ""
+
+#: templates/_layout/_base.html:39
+msgid "About Us"
+msgstr ""
+
+#: templates/_layout/_base.html:50
+msgid "Profile"
+msgstr ""
+
+#: templates/_layout/_base.html:53
+msgid "Contact Us"
+msgstr ""
+
+#: templates/_layout/_base.html:59
+msgid "Login/Register"
+msgstr ""
+
+#: templates/_layout/_base.html:62
+msgid "Back To Home"
+msgstr ""
+
+#: templates/_layout/_base.html:76
+msgid "Menu"
+msgstr ""
+
+#: templates/_layout/_base.html:124
+msgid "Close"
+msgstr ""
+
+#: templates/_layout/_base.html:125
+msgid "Order now"
+msgstr ""
+
+#: templates/_layout/cards.html:19
+msgid "Likes"
+msgstr ""
+
+#: templates/_layout/cards.html:35
+msgid "Available"
+msgstr ""
+
+#: templates/_layout/cards.html:38 templates/_layout/cards.html:49
+msgid "Details"
+msgstr ""
+
+#: templates/_layout/cards.html:42
+msgid "Add to cart"
+msgstr ""
+
+#: templates/_layout/cards.html:46 templates/_layout/cards.html:53
+msgid "Unavailable"
 msgstr ""
