@@ -22,6 +22,7 @@ class Addresses(BaseModel):
 
 class Costumers(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_address = models.OneToOneField(Addresses, null=True, blank=True, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _("Costumer")

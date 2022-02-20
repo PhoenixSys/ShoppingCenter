@@ -13,8 +13,8 @@
                             class="rounded-circle mt-5"
                             width="150px"
                             src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                            class="font-weight-bold">{{ userInfo.username }}</span><span
-                            class="text-black-50">{{ userInfo.email }}</span><span> </span></div>
+                            class="font-weight-bold">{{ userInfo.user.username }}</span><span
+                            class="text-black-50">{{ userInfo.user.email }}</span><span> </span></div>
                 </div>
                 <div class="col-md-5 border-right">
                     <div class="p-3 py-5">
@@ -22,11 +22,11 @@
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
                         <div class="row mt-2">
-                            {% if userInfo.first_name %}
+                            {% if userInfo.user.first_name %}
                                 <div class="col-md-6"><label class="labels">Name</label><input type="text"
                                                                                                class="form-control"
-                                                                                               placeholder="{{ userInfo.first_name }}"
-                                                                                               value="{{ userInfo.first_name }}"
+                                                                                               placeholder="{{ userInfo.user.first_name }}"
+                                                                                               value="{{ userInfo.user.first_name }}"
                                                                                                name="first_name"></div>
                             {% else %}
                                 <div class="col-md-6"><label class="labels">Name</label><input type="text"
@@ -35,11 +35,11 @@
                                                                                                value=""
                                                                                                name="first_name"></div>
                             {% endif %}
-                            {% if userInfo.last_name %}
+                            {% if userInfo.user.last_name %}
                                 <div class="col-md-6"><label class="labels">Surname</label><input type="text"
                                                                                                   class="form-control"
-                                                                                                  value="{{ userInfo.last_name }}"
-                                                                                                  placeholder="{{ userInfo.last_name }}"
+                                                                                                  value="{{ userInfo.user.last_name }}"
+                                                                                                  placeholder="{{ userInfo.user.last_name }}"
                                                                                                   name="last_name">
                                 </div>
                             {% else %}
@@ -55,33 +55,40 @@
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
                                                                                                      class="form-control"
-                                                                                                     placeholder="{{ userInfo.phone }}"
-                                                                                                     value="{{ userInfo.phone }}"
+                                                                                                     placeholder="{{ userInfo.user.phone }}"
+                                                                                                     value="{{ userInfo.user.phone }}"
                                                                                                      name="phone"
                                                                                                      readonly></div>
                             <div class="col-md-12"><label class="labels">Default Address</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="default_address">
+                                    {% if userInfo.default_address %}
+                                        <option value="{{ userInfo.default_address.id }}">{{ userInfo.default_address.state }}
+                                            | {{ userInfo.default_address.city }}
+                                            | {{ userInfo.default_address.postal_code }}</option>
+                                    {% endif %}
                                     {% for address in addresses %}
-                                        <option value="{{ address.id }}">{{ address.state }} | {{ address.city }}
-                                            | {{ address.postal_code }}</option>
+                                        {% if userInfo.default_address.id != address.id %}
+                                            <option value="{{ address.id }}">{{ address.state }} | {{ address.city }}
+                                                | {{ address.postal_code }}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
                                                                                                 class="form-control"
                                                                                                 placeholder="Enter Postal Code"
-                                                                                                value=""
+                                                                                                value="{{ addresses.last.postal_code }}"
                                                                                                 name="postal_code">
                             </div>
                             <div class="col-md-12"><label class="labels">State</label><input type="text"
                                                                                              class="form-control"
                                                                                              placeholder="Enter State"
-                                                                                             value=""
+                                                                                             value="{{ addresses.last.state }}"
                                                                                              name="state"></div>
                             <div class="col-md-12"><label class="labels">City</label><input type="text"
                                                                                             class="form-control"
                                                                                             placeholder="Enter City"
-                                                                                            value=""
+                                                                                            value="{{ addresses.last.city }}"
                                                                                             name="city"></div>
                         </div>
                         <div class="row mt-3">
@@ -99,6 +106,11 @@
                         </div>
                         <div class="mt-5 text-center">
                             <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                            <a href="{% url 'home' %}">
+                                <button class="btn btn-danger profile-button" type="button">Discard
+                                    Changes
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

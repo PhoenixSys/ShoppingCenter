@@ -48,7 +48,7 @@ class Profile(PermissionRequiredMixin, View):
         costumers = Costumers.objects.get(user_id=user.id)
         addresses = Addresses.objects.filter(costumer_id=costumers.id).all()
         context = {
-            "userInfo": user,
+            "userInfo": costumers,
             "categories": categories,
             "addresses": addresses
         }
@@ -61,6 +61,8 @@ class Profile(PermissionRequiredMixin, View):
         user.first_name = data["first_name"]
         user.last_name = data["last_name"]
         user.save()
+        costumers.default_address_id = data["default_address"]
+        costumers.save()
         Addresses.objects.get_or_create(costumer=costumers, state=data["state"], city=data["city"],
                                         postal_code=data["postal_code"])
         return redirect("home")
