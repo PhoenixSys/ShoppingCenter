@@ -1,4 +1,5 @@
 {% extends "_layout/_base.html" %}
+{% load i18n %}
 {% block main %}
     <div id="myDIV">
         <div class="container mt-5 mb-5">
@@ -15,7 +16,7 @@
                                 <div class="d-flex flex-row">
                                     <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                             class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                                    <span>Likes</span>
+                                    <span>{% trans 'Likes' %}</span>
                                 </div>
                                 <div class="mt-1 mb-1 spec-1">
                                     {% for category in data.category.all %}
@@ -31,21 +32,25 @@
                                         class="strike-text">${{ data.price }}</span>
                                 </div>
                                 {% if data.is_active == True %}
-                                    <h6 class="text-success">Available</h6>
+                                    <h6 class="text-success">{% trans 'Available' %}</h6>
                                     <div class="d-flex flex-column mt-4">
-                                        <a class="btn btn-primary btn-sm text-white" type="button">Details</a>
+                                        <a class="btn btn-primary btn-sm text-white"
+                                           type="button">{% trans 'Details' %}</a>
                                         <button class="add-to-cart btn btn-outline-primary btn-sm mt-2" href="#"
                                                 data-name="{{ data.name|space_to_underline }}"
-                                                data-price="{{ data.final_price }}" type="button">Add to cart
+                                                data-price="{{ data.final_price }}"
+                                                type="button">{% trans 'Add to cart' %}
                                         </button>
                                     </div>
                                 {% else %}
-                                    <h6 class="text-danger">Unavailable</h6>
+                                    <h6 class="text-danger">{% trans 'Unavailable' %}</h6>
                                     <div class="d-flex flex-column mt-4">
-                                        <a class="btn btn-primary btn-sm text-white" type="button">Details</a>
+                                        <a class="btn btn-primary btn-sm text-white"
+                                           type="button">{% trans 'Details' %}</a>
                                         <button class="btn btn-outline-danger btn-sm mt-2" href="#"
                                                 data-name="{{ data.name }}"
-                                                data-price="{{ data.final_price }}" type="button">Unavailable
+                                                data-price="{{ data.final_price }}"
+                                                type="button">{% trans 'Unavailable' %}
                                         </button>
                                     </div>
                                 {% endif %}
