@@ -40,7 +40,7 @@ class RegisterLoginView(View):
 
 
 class Profile(PermissionRequiredMixin, View):
-    permission_required = ["authenticated"]
+    permission_required = ["core.authenticated"]
 
     def get(self, request):
         categories = Categories.objects.all()
