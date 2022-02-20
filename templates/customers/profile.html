@@ -22,10 +22,18 @@
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
                         <div class="row mt-2">
+                        <h1>{{ userInfo.first_name }}</h1>
+                            {% if userInfo.first_name %}
                             <div class="col-md-6"><label class="labels">Name</label><input type="text"
                                                                                            class="form-control"
-                                                                                           placeholder="first name"
+                                                                                           placeholder="{{ userInfo.first_name }}"
                                                                                            value=""></div>
+                            {% else %}
+                            <div class="col-md-6"><label class="labels">Name</label><input type="text"
+                                                                                           class="form-control"
+                                                                                           placeholder="First Name"
+                                                                                           value=""></div>
+                            {% endif %}
                             <div class="col-md-6"><label class="labels">Surname</label><input type="text"
                                                                                               class="form-control"
                                                                                               value=""
