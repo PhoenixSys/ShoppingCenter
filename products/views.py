@@ -30,11 +30,7 @@ class ProductsView(View):
         return response
 
 
-class ProductApi(APIView):
-    def get(self, request):
-        product_ser = ProductSerializer(instance=Products.objects.all(), many=True)
-        return Response(product_ser.data, status=200)
-
+class ProductApiCreate(APIView):
     def post(self, request):
         data = request.POST
         product_ser = ProductSerializer(data=data)
@@ -45,6 +41,11 @@ class ProductApi(APIView):
             return JsonResponse(product_ser.errors, status=400)
 
 
-class ProductApiSammi(generics.RetrieveUpdateDestroyAPIView):
+class ProductApiList(generics.RetrieveAPIView):
+    serializer_class = ProductSerializer
+    queryset = Products.objects.all()
+
+
+class ProductApiDestroy(generics.DestroyAPIView):
     serializer_class = ProductSerializer
     queryset = Products.objects.all()

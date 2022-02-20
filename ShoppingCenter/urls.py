@@ -27,7 +27,8 @@ urlpatterns = i18n_patterns(
     path('conatct_us/', ContactView.as_view(), name="contact"),
     path('about_us/', AboutUs.as_view(), name="about"),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('api/v1/costumers/', include('customers.urls')),
+    # path('api/v1/costumers/', include('customers.urls')),
+    path('api/v1/product/', include('products.urls')),
     path('rosseta/', include('rosetta.urls')),
     prefix_default_language=True,
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
