@@ -56,7 +56,11 @@ class Profile(PermissionRequiredMixin, View):
 
     def post(self, request):
         data = request.POST
-        print(data)
-        print(data["first_name"])
-        print(data["default_address"])
+        user = request.user
+        costumers = Costumers.objects.get(user=user)
+        user.first_name = data["first_name"]
+        user.last_name = data["last_name"]
+        user.save()
+        Addresses.objects.get_or_create(costumer=costumers, state=data["state"], city=data["city"],
+                                        postal_code=data["postal_code"])
         return redirect("home")
