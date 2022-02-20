@@ -4,11 +4,16 @@ from django.shortcuts import render, redirect
 from django.views import View
 from core.models import User
 from customers.models import Costumers
+from products.models import Categories
 
 
 class RegisterLoginView(View):
     def get(self, request):
-        return render(request, "customers/register_login_page.html")
+        categories = Categories.objects.all()
+        context = {
+            "categories": categories
+        }
+        return render(request, "customers/register_login_page.html", context=context)
 
     def post(self, request):
         data = request.POST
