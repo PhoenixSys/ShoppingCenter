@@ -22,59 +22,79 @@
                             <h4 class="text-right">Profile Settings</h4>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Name</label><input type="text"
-                                                                                           class="form-control"
-                                                                                           placeholder="first name"
-                                                                                           value=""></div>
-                            <div class="col-md-6"><label class="labels">Surname</label><input type="text"
-                                                                                              class="form-control"
-                                                                                              value=""
-                                                                                              placeholder="surname">
-                            </div>
+                            {% if userInfo.first_name %}
+                                <div class="col-md-6"><label class="labels">Name</label><input type="text"
+                                                                                               class="form-control"
+                                                                                               placeholder="{{ userInfo.first_name }}"
+                                                                                               value="{{ userInfo.first_name }}"
+                                                                                               name="first_name"></div>
+                            {% else %}
+                                <div class="col-md-6"><label class="labels">Name</label><input type="text"
+                                                                                               class="form-control"
+                                                                                               placeholder="First Name"
+                                                                                               value=""
+                                                                                               name="first_name"></div>
+                            {% endif %}
+                            {% if userInfo.last_name %}
+                                <div class="col-md-6"><label class="labels">Surname</label><input type="text"
+                                                                                                  class="form-control"
+                                                                                                  value="{{ userInfo.last_name }}"
+                                                                                                  placeholder="{{ userInfo.last_name }}"
+                                                                                                  name="last_name">
+                                </div>
+                            {% else %}
+                                <div class="col-md-6"><label class="labels">Surname</label><input type="text"
+                                                                                                  class="form-control"
+                                                                                                  value=""
+                                                                                                  placeholder="surname"
+                                                                                                  name="last_name">
+                                </div>
+                            {% endif %}
+
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
                                                                                                      class="form-control"
                                                                                                      placeholder="{{ userInfo.phone }}"
-                                                                                                     value=""></div>
-                            <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text"
-                                                                                                      class="form-control"
-                                                                                                      placeholder="enter address line 1"
-                                                                                                      value=""></div>
-                            <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text"
-                                                                                                      class="form-control"
-                                                                                                      placeholder="enter address line 2"
-                                                                                                      value=""></div>
+                                                                                                     value="{{ userInfo.phone }}"
+                                                                                                     name="phone"
+                                                                                                     readonly></div>
+                            <div class="col-md-12"><label class="labels">Default Address</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="default_address">
+                                    {% for address in addresses %}
+                                        <option value="{{ address.id }}">{{ address.state }} | {{ address.city }}
+                                            | {{ address.postal_code }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
                             <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
                                                                                                 class="form-control"
-                                                                                                placeholder="enter address line 2"
-                                                                                                value=""></div>
+                                                                                                placeholder="Enter Postal Code"
+                                                                                                value=""
+                                                                                                name="postal_code">
+                            </div>
                             <div class="col-md-12"><label class="labels">State</label><input type="text"
                                                                                              class="form-control"
-                                                                                             placeholder="enter address line 2"
-                                                                                             value=""></div>
-                            <div class="col-md-12"><label class="labels">Area</label><input type="text"
+                                                                                             placeholder="Enter State"
+                                                                                             value=""
+                                                                                             name="state"></div>
+                            <div class="col-md-12"><label class="labels">City</label><input type="text"
                                                                                             class="form-control"
-                                                                                            placeholder="enter address line 2"
-                                                                                            value=""></div>
-                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
-                                                                                                class="form-control"
-                                                                                                placeholder="enter email id"
-                                                                                                value=""></div>
-                            <div class="col-md-12"><label class="labels">Education</label><input type="text"
-                                                                                                 class="form-control"
-                                                                                                 placeholder="education"
-                                                                                                 value=""></div>
+                                                                                            placeholder="Enter City"
+                                                                                            value=""
+                                                                                            name="city"></div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6"><label class="labels">Country</label><input type="text"
                                                                                               class="form-control"
                                                                                               placeholder="country"
-                                                                                              value=""></div>
+                                                                                              value=""
+                                                                                              name="country_opt"></div>
                             <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
                                                                                                    class="form-control"
                                                                                                    value=""
-                                                                                                   placeholder="state">
+                                                                                                   placeholder="state"
+                                                                                                   name="state_opt">
                             </div>
                         </div>
                         <div class="mt-5 text-center">
