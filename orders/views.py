@@ -6,8 +6,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from customers.models import Costumers
 from orders.models import Order, OrderItem
 from orders.serializer import OrderSerializer, OrderItemsSerializer, ItemSerializer
+from products.models import Products
 
 
 class OrderApiView(APIView):
@@ -25,10 +27,22 @@ class OrderApiView(APIView):
         return Response(content)
 
     def post(self, request, format=None):
-        item_ser = ItemSerializer(data=request.data, many=True)
-        if item_ser.is_valid():
-            print(item_ser.data)
-        else:
-            print("is not")
-            print(item_ser.errors)
+        costumer = Costumers.objects.get(id=10)
+        order = Order.objects.create(costumer=costumer)
+        check = ItemSerializer(data=request.data, many=True)
+        if check.is_valid():
+            for i in request.data:
+                i["order"] = order.id
+                item = Products.objects.get(name=i["name"].replace("_", " "))
+                i["item"] = item.id
+                i["quantity"] = i["count"]
+                del i["name"]
+                del i["price"]
+                del i["count"]
+                order_f = OrderItemsSerializer(data=i)
+                if order_f.is_valid():
+                    order_f.save()
+                    return Response({"order": order_f.data})
+                else:
+                    print(order_f.errors)
         return Response({})
