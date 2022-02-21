@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 from customers.models import Costumers
 from orders.models import Order, OrderItem
 from orders.serializer import OrderSerializer, OrderItemsSerializer, ItemSerializer
-from products.models import Products
+from products.models import Products, Categories
 
 
 class OrderApiView(APIView):
@@ -56,7 +56,9 @@ class OrderHistory(PermissionRequiredMixin, View):
         user = request.user
         costumer = Costumers.objects.get(user=user)
         orders = Order.objects.filter(costumer=costumer)
+        categories = Categories.objects.all()
         context = {
-            "orders": orders
+            "orders": orders,
+            "categories": categories,
         }
         return render(request, "orders/full_history.html", context)
