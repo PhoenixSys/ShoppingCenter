@@ -21,12 +21,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from contact.views import ContactView, AboutUs
+from orders.views import OrderHistory
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include("products.urls")),
     path('conatct_us/', ContactView.as_view(), name="contact"),
     path('about_us/', AboutUs.as_view(), name="about"),
+    path('orders/full_history/', OrderHistory.as_view(), name="order_history"),
     path('costumers/', include('customers.urls')),
     path('login/', LoginView.as_view(), name="login"),
     # api and rosseta
