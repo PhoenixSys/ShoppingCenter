@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-20 13:51+0000\n"
-"PO-Revision-Date: 2022-02-20 13:54+0000\n"
+"POT-Creation-Date: 2022-02-21 08:36+0000\n"
+"PO-Revision-Date: 2022-02-21 08:38+0000\n"
 "Last-Translator:   <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -43,7 +43,7 @@ msgstr "موجودیت"
 msgid "This is active status"
 msgstr ""
 
-#: customers/models.py:9 customers/models.py:27
+#: customers/models.py:9 customers/models.py:28
 msgid "Costumer"
 msgstr "مشتری"
 
@@ -67,7 +67,7 @@ msgstr "آدرس"
 msgid "Addresses"
 msgstr "آدرس ها"
 
-#: customers/models.py:28 orders/models.py:17
+#: customers/models.py:29 orders/models.py:17
 msgid "Costumers"
 msgstr "مشتری ها"
 
@@ -155,6 +155,10 @@ msgstr "ماگزیمم قیمت"
 msgid "Discounts"
 msgstr "تخفیف"
 
+#: templates/_layout/_base.html:32
+msgid "Ariana"
+msgstr "آریانا"
+
 #: templates/_layout/_base.html:36
 msgid "Home"
 msgstr "خانه"
@@ -183,11 +187,19 @@ msgstr "بازگشت به خانه"
 msgid "Menu"
 msgstr "منو"
 
-#: templates/_layout/_base.html:124
+#: templates/_layout/_base.html:88
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: templates/_layout/_base.html:96
+msgid "Clear Cart"
+msgstr "حذف سبد خرید"
+
+#: templates/_layout/_base.html:125
 msgid "Close"
 msgstr "بستن"
 
-#: templates/_layout/_base.html:125
+#: templates/_layout/_base.html:126
 #, fuzzy
 #| msgid "Order"
 msgid "Order now"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-20 13:51+0000\n"
+"POT-Creation-Date: 2022-02-21 08:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "This is active status"
 msgstr ""
 
-#: customers/models.py:9 customers/models.py:27
+#: customers/models.py:9 customers/models.py:28
 msgid "Costumer"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Addresses"
 msgstr ""
 
-#: customers/models.py:28 orders/models.py:17
+#: customers/models.py:29 orders/models.py:17
 msgid "Costumers"
 msgstr ""
 
@@ -154,6 +154,10 @@ msgstr ""
 msgid "Discounts"
 msgstr ""
 
+#: templates/_layout/_base.html:32
+msgid "Ariana"
+msgstr ""
+
 #: templates/_layout/_base.html:36
 msgid "Home"
 msgstr ""
@@ -182,11 +186,19 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: templates/_layout/_base.html:124
-msgid "Close"
+#: templates/_layout/_base.html:88
+msgid "Cart"
+msgstr ""
+
+#: templates/_layout/_base.html:96
+msgid "Clear Cart"
 msgstr ""
 
 #: templates/_layout/_base.html:125
+msgid "Close"
+msgstr ""
+
+#: templates/_layout/_base.html:126
 msgid "Order now"
 msgstr ""
 
