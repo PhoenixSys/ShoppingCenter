@@ -11,11 +11,11 @@ class TestProductDiscount(TestCase):
         self.discount3 = Discount.objects.create(value=30, type='percent', max_price='10000')
         self.discount3 = Discount.objects.create(value=30, type='percent')
         self.category1 = Categories.objects.create(type="Electronic")
-        self.category2 = Categories.objects.create(type="Mobile", discount=self.discount2)
+        self.category2 = Categories.objects.create(type="Mobile")
         inst1 = self.product1 = Products.objects.create(name="Samsung A12", price=20000,
                                                         discount=self.discount1, description="")
         inst1.category.set([self.category2])
-        inst2 = self.product2 = Products.objects.create(name="Samsung A12", price=20000,
+        inst2 = self.product2 = Products.objects.create(name="Samsung A12s", price=20000,
                                                         discount=self.discount2, description="")
         inst2.category.set([self.category2, self.category1])
 
