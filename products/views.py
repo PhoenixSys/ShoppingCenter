@@ -49,3 +49,14 @@ class ProductApiList(generics.RetrieveAPIView):
 class ProductApiDestroy(generics.DestroyAPIView):
     serializer_class = ProductSerializer
     queryset = Products.objects.all()
+
+
+class ProductsCategoryView(View):
+    def get(self, request, id):
+        categories = Categories.objects.all()
+        datas = Products.objects.filter(category=id)
+        context = {
+            "datas": datas,
+            "categories": categories
+        }
+        return render(request, "_layout/cards.html", context=context)
