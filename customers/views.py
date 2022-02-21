@@ -58,11 +58,16 @@ class Profile(PermissionRequiredMixin, View):
         data = request.POST
         user = request.user
         costumers = Costumers.objects.get(user=user)
-        user.first_name = data["first_name"]
-        user.last_name = data["last_name"]
-        user.save()
-        costumers.default_address_id = data["default_address"]
-        costumers.save()
-        Addresses.objects.get_or_create(costumer=costumers, state=data["state"], city=data["city"],
-                                        postal_code=data["postal_code"])
+        if "first_name" in data.keys():
+            user.first_name = data["first_name"]
+            user.save()
+        if "last_name" in data.keys():
+            user.last_name = data["last_name"]
+            user.save()
+        if "default_address" in data.keys():
+            costumers.default_address_id = data["default_address"]
+            costumers.save()
+        if len(data["state"]) >= 3 and len(data["city"]) >= 3 and len(data["postal_code"]) >= 3:
+            Addresses.objects.get_or_create(costumer=costumers, state=data["state"], city=data["city"],
+                                            postal_code=data["postal_code"])
         return redirect("home")
