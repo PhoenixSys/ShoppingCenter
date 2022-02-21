@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-21 08:36+0000\n"
-"PO-Revision-Date: 2022-02-21 08:38+0000\n"
+"PO-Revision-Date: 2022-02-21 08:47+0000\n"
 "Last-Translator:   <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -200,10 +200,9 @@ msgid "Close"
 msgstr "بستن"
 
 #: templates/_layout/_base.html:126
-#, fuzzy
 #| msgid "Order"
 msgid "Order now"
-msgstr "سفارش"
+msgstr "ثبت نهایی"
 
 #: templates/_layout/cards.html:19
 msgid "Likes"
