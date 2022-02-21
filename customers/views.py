@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from core.models import User
 from customers.models import Costumers, Addresses
+from orders.models import Order
 from products.models import Categories
 
 
@@ -45,12 +46,14 @@ class Profile(PermissionRequiredMixin, View):
     def get(self, request):
         user = request.user
         categories = Categories.objects.all()
-        costumers = Costumers.objects.get(user_id=user.id)
-        addresses = Addresses.objects.filter(costumer_id=costumers.id).all()
+        costumer = Costumers.objects.get(user_id=user.id)
+        orders = Order.objects.filter(costumer=costumer)[:3]
+        addresses = Addresses.objects.filter(costumer_id=costumer.id).all()
         context = {
-            "userInfo": costumers,
+            "userInfo": costumer,
             "categories": categories,
-            "addresses": addresses
+            "addresses": addresses,
+            "orders": orders
         }
         return render(request, "customers/profile.html", context=context)
 

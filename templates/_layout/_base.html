@@ -167,14 +167,14 @@
             var json = JSON.stringify(ordersValue);
             $.ajax({
                 type: "POST",
-                url: "{% url 'home' %}",
+                url: "{% url 'order_api' %}",
                 data: json,
-                dataType: "json",
+                contentType: "application/json",
                 success: function (msg) {
                     alert("successful !")
                 },
                 error: function (msg) {
-                    alert("failed !");
+                    alert("At First Please Login :)");
                 }
             });
         });

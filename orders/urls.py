@@ -1,5 +1,7 @@
 from django.urls import path
-#
-# urlpatterns = [
-#     path('conatct_us/', ContactView.as_view(), name="contact"),
-# ]
+
+from orders.views import OrderApiView
+
+urlpatterns = [
+    path('order_api/', OrderApiView.as_view(), name="order_api"),
+]
