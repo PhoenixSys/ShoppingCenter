@@ -1,6 +1,8 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
 
 # Create your views here.
+from django.views import View
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -46,3 +48,16 @@ class OrderApiView(APIView):
                 else:
                     print(order_f.errors)
         return Response({})
+
+
+class OrderHistory(PermissionRequiredMixin, View):
+    permission_required = ["core.authenticated"]
+
+    def get(self, request):
+        user = request.user
+        costumer = Costumers.objects.get(user=user)
+        orders = Order.objects.filter(costumer=costumer)
+        context = {
+            "orders": orders
+        }
+        return render(request, "orders/full_history.html", context)
