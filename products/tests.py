@@ -4,6 +4,7 @@ from django.test import TestCase
 from products.models import Discount, Products, Categories
 
 
+
 class TestProductDiscount(TestCase):
     def setUp(self):
         self.discount1 = Discount.objects.create(value=20, type='percent')
