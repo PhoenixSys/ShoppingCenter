@@ -44,7 +44,6 @@ class OrderApiView(APIView):
                 order_f = OrderItemsSerializer(data=i)
                 if order_f.is_valid():
                     order_f.save()
-                    return Response({"order": order_f.data})
                 else:
                     print(order_f.errors)
         return Response({})
