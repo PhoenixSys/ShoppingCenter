@@ -29,7 +29,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3 style="text-align: center">Ariana</h3>
+                <h3 style="text-align: center">{% trans 'Ariana' %}</h3>
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
@@ -85,14 +85,15 @@
                             <li class="nav-item active">
 
                                 <button type="button" class="btn btn-success" data-toggle="modal"
-                                        data-target="#cart"><i class="fas fa-shopping-cart"></i> Cart (<span
-                                        class="total-count"></span>)
+                                        data-target="#cart"><i class="fas fa-shopping-cart"></i> {% trans 'Cart' %}
+                                    (<span
+                                            class="total-count"></span>)
                                 </button>
 
                             </li>
                             <li class="nav-item">
-                                <button class="clear-cart btn btn-danger"><i class="fa-solid fa-trash-can"></i> Clear
-                                    Cart
+                                <button class="clear-cart btn btn-danger"><i
+                                        class="fa-solid fa-trash-can"></i> {% trans 'Clear Cart' %}
                                 </button>
                             </li>
                         </ul>
