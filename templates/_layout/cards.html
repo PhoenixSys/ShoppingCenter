@@ -35,7 +35,8 @@
                                     <h6 class="text-success">{% trans 'Available' %}</h6>
                                     <div class="d-flex flex-column mt-4">
                                         <a class="btn btn-primary btn-sm text-white"
-                                           type="button">{% trans 'Details' %}</a>
+                                           type="button"
+                                           href="{% url 'product_detail' data.id %}">{% trans 'Details' %}</a>
                                         <button class="add-to-cart btn btn-outline-primary btn-sm mt-2" href="#"
                                                 data-name="{{ data.name|space_to_underline }}"
                                                 data-price="{{ data.final_price }}"
@@ -46,7 +47,8 @@
                                     <h6 class="text-danger">{% trans 'Unavailable' %}</h6>
                                     <div class="d-flex flex-column mt-4">
                                         <a class="btn btn-primary btn-sm text-white"
-                                           type="button">{% trans 'Details' %}</a>
+                                           type="button"
+                                           href="{% url 'product_detail' data.id %}">{% trans 'Details' %}</a>
                                         <button class="btn btn-outline-danger btn-sm mt-2" href="#"
                                                 data-name="{{ data.name }}"
                                                 data-price="{{ data.final_price }}"
