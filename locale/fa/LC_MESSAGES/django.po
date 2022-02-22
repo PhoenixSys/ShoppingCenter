@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 08:36+0000\n"
-"PO-Revision-Date: 2022-02-21 08:47+0000\n"
+"POT-Creation-Date: 2022-02-22 05:01+0000\n"
+"PO-Revision-Date: 2022-02-22 05:04+0000\n"
 "Last-Translator:   <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -47,11 +47,11 @@ msgstr ""
 msgid "Costumer"
 msgstr "مشتری"
 
-#: customers/models.py:10
+#: customers/models.py:10 templates/customers/profile.html:90
 msgid "State"
 msgstr "استان"
 
-#: customers/models.py:11
+#: customers/models.py:11 templates/customers/profile.html:96
 msgid "City"
 msgstr "شهر"
 
@@ -59,7 +59,7 @@ msgstr "شهر"
 msgid "PostalCode"
 msgstr "کد پستی"
 
-#: customers/models.py:16 orders/models.py:18
+#: customers/models.py:16
 msgid "Address"
 msgstr "آدرس"
 
@@ -71,35 +71,37 @@ msgstr "آدرس ها"
 msgid "Costumers"
 msgstr "مشتری ها"
 
-#: orders/models.py:19
+#: orders/models.py:18
 msgid "Status"
 msgstr "وضعیت"
 
-#: orders/models.py:20
+#: orders/models.py:19
 msgid "Paid"
 msgstr "پرداخت شده "
 
-#: orders/models.py:24 orders/models.py:36
+#: orders/models.py:23 orders/models.py:35
+#: templates/customers/profile.html:124
 msgid "Order"
 msgstr "سفارش"
 
-#: orders/models.py:25
+#: orders/models.py:24
 msgid "Orders"
 msgstr "سفارش ها"
 
-#: orders/models.py:37
+#: orders/models.py:36
 msgid "Item"
 msgstr "آیتم"
 
-#: orders/models.py:41
+#: orders/models.py:40
 msgid "OrderItem"
 msgstr "آیتم داخل سفارش"
 
-#: orders/models.py:42
+#: orders/models.py:41
 msgid "OrderItems"
 msgstr "آیتم های داخل سفارش"
 
-#: products/models.py:9
+#: products/models.py:9 templates/customers/profile.html:27
+#: templates/customers/profile.html:34
 msgid "Name"
 msgstr "نام"
 
@@ -167,40 +169,39 @@ msgstr "خانه"
 msgid "About Us"
 msgstr "درباره ما"
 
-#: templates/_layout/_base.html:50
+#: templates/_layout/_base.html:65
 msgid "Profile"
 msgstr "پروفایل"
 
-#: templates/_layout/_base.html:53
+#: templates/_layout/_base.html:68
 msgid "Contact Us"
 msgstr "تماس با ما"
 
-#: templates/_layout/_base.html:59
+#: templates/_layout/_base.html:74
 msgid "Login/Register"
 msgstr "ورود/ثبت نام"
 
-#: templates/_layout/_base.html:62
+#: templates/_layout/_base.html:77
 msgid "Back To Home"
 msgstr "بازگشت به خانه"
 
-#: templates/_layout/_base.html:76
+#: templates/_layout/_base.html:91
 msgid "Menu"
 msgstr "منو"
 
-#: templates/_layout/_base.html:88
+#: templates/_layout/_base.html:103 templates/_layout/_base.html:127
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: templates/_layout/_base.html:96
+#: templates/_layout/_base.html:111
 msgid "Clear Cart"
 msgstr "حذف سبد خرید"
 
-#: templates/_layout/_base.html:125
+#: templates/_layout/_base.html:140
 msgid "Close"
 msgstr "بستن"
 
-#: templates/_layout/_base.html:126
-#| msgid "Order"
+#: templates/_layout/_base.html:141
 msgid "Order now"
 msgstr "ثبت نهایی"
 
@@ -224,8 +225,51 @@ msgstr "اضافه به سبد خرید"
 msgid "Unavailable"
 msgstr "دردسترس نیست"
 
-#~ msgid "Username"
-#~ msgstr "نام کاربری"
+#: templates/customers/profile.html:23
+#| msgid "Profile"
+msgid "Profile Settings"
+msgstr "تنظیمات پروفایل"
+
+#: templates/customers/profile.html:42 templates/customers/profile.html:50
+#| msgid "Username"
+msgid "Surname"
+msgstr "نام خانوادگی"
+
+#: templates/customers/profile.html:61
+msgid "Mobile Number"
+msgstr "شماره موبایل"
+
+#: templates/customers/profile.html:68
+#| msgid "Address"
+msgid "Default Address"
+msgstr "آدرس پیشفرض"
+
+#: templates/customers/profile.html:83
+#| msgid "PostalCode"
+msgid "Postcode"
+msgstr "کد پستی"
+
+#: templates/customers/profile.html:105
+#| msgid "Profile"
+msgid "Save Profile"
+msgstr "ذخیره پروفایل"
+
+#: templates/customers/profile.html:108
+msgid "Discard Changes"
+msgstr "صرف نظر از تغییرات"
+
+#: templates/customers/profile.html:117
+msgid "Recently Orders"
+msgstr "سفارش های اخیر"
+
+#: templates/customers/profile.html:120
+msgid "Full History"
+msgstr "تاریخچه کامل"
+
+#: templates/customers/profile.html:125
+#| msgid "Costumer"
+msgid "Cost"
+msgstr "هزینه"
 
 #~ msgid "Password"
 #~ msgstr "پسورد"

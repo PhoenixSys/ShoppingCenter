@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 08:36+0000\n"
+"POT-Creation-Date: 2022-02-22 05:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,11 +46,11 @@ msgstr ""
 msgid "Costumer"
 msgstr ""
 
-#: customers/models.py:10
+#: customers/models.py:10 templates/customers/profile.html:90
 msgid "State"
 msgstr ""
 
-#: customers/models.py:11
+#: customers/models.py:11 templates/customers/profile.html:96
 msgid "City"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "PostalCode"
 msgstr ""
 
-#: customers/models.py:16 orders/models.py:18
+#: customers/models.py:16
 msgid "Address"
 msgstr ""
 
@@ -70,35 +70,36 @@ msgstr ""
 msgid "Costumers"
 msgstr ""
 
-#: orders/models.py:19
+#: orders/models.py:18
 msgid "Status"
 msgstr ""
 
-#: orders/models.py:20
+#: orders/models.py:19
 msgid "Paid"
 msgstr ""
 
-#: orders/models.py:24 orders/models.py:36
+#: orders/models.py:23 orders/models.py:35 templates/customers/profile.html:124
 msgid "Order"
 msgstr ""
 
-#: orders/models.py:25
+#: orders/models.py:24
 msgid "Orders"
 msgstr ""
 
-#: orders/models.py:37
+#: orders/models.py:36
 msgid "Item"
 msgstr ""
 
-#: orders/models.py:41
+#: orders/models.py:40
 msgid "OrderItem"
 msgstr ""
 
-#: orders/models.py:42
+#: orders/models.py:41
 msgid "OrderItems"
 msgstr ""
 
-#: products/models.py:9
+#: products/models.py:9 templates/customers/profile.html:27
+#: templates/customers/profile.html:34
 msgid "Name"
 msgstr ""
 
@@ -166,39 +167,39 @@ msgstr ""
 msgid "About Us"
 msgstr ""
 
-#: templates/_layout/_base.html:50
+#: templates/_layout/_base.html:65
 msgid "Profile"
 msgstr ""
 
-#: templates/_layout/_base.html:53
+#: templates/_layout/_base.html:68
 msgid "Contact Us"
 msgstr ""
 
-#: templates/_layout/_base.html:59
+#: templates/_layout/_base.html:74
 msgid "Login/Register"
 msgstr ""
 
-#: templates/_layout/_base.html:62
+#: templates/_layout/_base.html:77
 msgid "Back To Home"
 msgstr ""
 
-#: templates/_layout/_base.html:76
+#: templates/_layout/_base.html:91
 msgid "Menu"
 msgstr ""
 
-#: templates/_layout/_base.html:88
+#: templates/_layout/_base.html:103 templates/_layout/_base.html:127
 msgid "Cart"
 msgstr ""
 
-#: templates/_layout/_base.html:96
+#: templates/_layout/_base.html:111
 msgid "Clear Cart"
 msgstr ""
 
-#: templates/_layout/_base.html:125
+#: templates/_layout/_base.html:140
 msgid "Close"
 msgstr ""
 
-#: templates/_layout/_base.html:126
+#: templates/_layout/_base.html:141
 msgid "Order now"
 msgstr ""
 
@@ -220,4 +221,44 @@ msgstr ""
 
 #: templates/_layout/cards.html:46 templates/_layout/cards.html:53
 msgid "Unavailable"
+msgstr ""
+
+#: templates/customers/profile.html:23
+msgid "Profile Settings"
+msgstr ""
+
+#: templates/customers/profile.html:42 templates/customers/profile.html:50
+msgid "Surname"
+msgstr ""
+
+#: templates/customers/profile.html:61
+msgid "Mobile Number"
+msgstr ""
+
+#: templates/customers/profile.html:68
+msgid "Default Address"
+msgstr ""
+
+#: templates/customers/profile.html:83
+msgid "Postcode"
+msgstr ""
+
+#: templates/customers/profile.html:105
+msgid "Save Profile"
+msgstr ""
+
+#: templates/customers/profile.html:108
+msgid "Discard Changes"
+msgstr ""
+
+#: templates/customers/profile.html:117
+msgid "Recently Orders"
+msgstr ""
+
+#: templates/customers/profile.html:120
+msgid "Full History"
+msgstr ""
+
+#: templates/customers/profile.html:125
+msgid "Cost"
 msgstr ""
