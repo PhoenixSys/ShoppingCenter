@@ -60,3 +60,14 @@ class ProductsCategoryView(View):
             "categories": categories
         }
         return render(request, "_layout/cards.html", context=context)
+
+
+class ProductDetailView(View):
+    def get(self, request, id):
+        product = Products.objects.get(id=id)
+        categories = Categories.objects.all()
+        context = {
+            "product": product,
+            "categories": categories
+        }
+        return render(request, "_layout/details.html", context=context)
