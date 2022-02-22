@@ -1,4 +1,5 @@
 {% extends '_layout/_base.html' %}
+{% load i18n %}
 {% load static %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'customers/css/profile.css' %}">
@@ -19,47 +20,52 @@
                 <div class="col-md-5 border-right">
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="text-right">Profile Settings</h4>
+                            <h4 class="text-right">{% trans 'Profile Settings' %}</h4>
                         </div>
                         <div class="row mt-2">
                             {% if userInfo.user.first_name %}
-                                <div class="col-md-6"><label class="labels">Name</label><input type="text"
-                                                                                               class="form-control"
-                                                                                               placeholder="{{ userInfo.user.first_name }}"
-                                                                                               value="{{ userInfo.user.first_name }}"
-                                                                                               name="first_name"></div>
-                            {% else %}
-                                <div class="col-md-6"><label class="labels">Name</label><input type="text"
-                                                                                               class="form-control"
-                                                                                               placeholder="First Name"
-                                                                                               value=""
-                                                                                               name="first_name"></div>
-                            {% endif %}
-                            {% if userInfo.user.last_name %}
-                                <div class="col-md-6"><label class="labels">Surname</label><input type="text"
-                                                                                                  class="form-control"
-                                                                                                  value="{{ userInfo.user.last_name }}"
-                                                                                                  placeholder="{{ userInfo.user.last_name }}"
-                                                                                                  name="last_name">
+                                <div class="col-md-6"><label class="labels">{% trans 'Name' %}</label><input type="text"
+                                                                                                             class="form-control"
+                                                                                                             placeholder="{{ userInfo.user.first_name }}"
+                                                                                                             value="{{ userInfo.user.first_name }}"
+                                                                                                             name="first_name">
                                 </div>
                             {% else %}
-                                <div class="col-md-6"><label class="labels">Surname</label><input type="text"
-                                                                                                  class="form-control"
-                                                                                                  value=""
-                                                                                                  placeholder="surname"
-                                                                                                  name="last_name">
+                                <div class="col-md-6"><label class="labels">{% trans 'Name' %}</label><input type="text"
+                                                                                                             class="form-control"
+                                                                                                             placeholder="First Name"
+                                                                                                             value=""
+                                                                                                             name="first_name">
+                                </div>
+                            {% endif %}
+                            {% if userInfo.user.last_name %}
+                                <div class="col-md-6"><label class="labels">{% trans 'Surname' %}</label><input
+                                        type="text"
+                                        class="form-control"
+                                        value="{{ userInfo.user.last_name }}"
+                                        placeholder="{{ userInfo.user.last_name }}"
+                                        name="last_name">
+                                </div>
+                            {% else %}
+                                <div class="col-md-6"><label class="labels">{% trans 'Surname' %}</label><input
+                                        type="text"
+                                        class="form-control"
+                                        value=""
+                                        placeholder="surname"
+                                        name="last_name">
                                 </div>
                             {% endif %}
 
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
-                                                                                                     class="form-control"
-                                                                                                     placeholder="{{ userInfo.user.phone }}"
-                                                                                                     value="{{ userInfo.user.phone }}"
-                                                                                                     name="phone"
-                                                                                                     readonly></div>
-                            <div class="col-md-12"><label class="labels">Default Address</label>
+                            <div class="col-md-12"><label class="labels">{% trans 'Mobile Number' %}</label><input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="{{ userInfo.user.phone }}"
+                                    value="{{ userInfo.user.phone }}"
+                                    name="phone"
+                                    readonly></div>
+                            <div class="col-md-12"><label class="labels">{% trans 'Default Address' %}</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="default_address">
                                     {% if userInfo.default_address %}
                                         <option value="{{ userInfo.default_address.id }}">{{ userInfo.default_address.state }}
@@ -74,28 +80,32 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
-                                                                                                class="form-control"
-                                                                                                placeholder="Enter Postal Code"
-                                                                                                value="{{ addresses.last.postal_code }}"
-                                                                                                name="postal_code">
+                            <div class="col-md-12"><label class="labels">{% trans 'Postcode' %}</label><input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Postal Code"
+                                    value="{{ addresses.last.postal_code }}"
+                                    name="postal_code">
                             </div>
-                            <div class="col-md-12"><label class="labels">State</label><input type="text"
-                                                                                             class="form-control"
-                                                                                             placeholder="Enter State"
-                                                                                             value="{{ addresses.last.state }}"
-                                                                                             name="state"></div>
-                            <div class="col-md-12"><label class="labels">City</label><input type="text"
-                                                                                            class="form-control"
-                                                                                            placeholder="Enter City"
-                                                                                            value="{{ addresses.last.city }}"
-                                                                                            name="city"></div>
+                            <div class="col-md-12"><label class="labels">{% trans 'State' %}</label><input type="text"
+                                                                                                           class="form-control"
+                                                                                                           placeholder="Enter State"
+                                                                                                           value="{{ addresses.last.state }}"
+                                                                                                           name="state">
+                            </div>
+                            <div class="col-md-12"><label class="labels">{% trans 'City' %}</label><input type="text"
+                                                                                                          class="form-control"
+                                                                                                          placeholder="Enter City"
+                                                                                                          value="{{ addresses.last.city }}"
+                                                                                                          name="city">
+                            </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                            <button class="btn btn-primary profile-button"
+                                    type="submit">{% trans 'Save Profile' %}</button>
                             <a href="{% url 'home' %}">
-                                <button class="btn btn-danger profile-button" type="button">Discard
-                                    Changes
+                                <button class="btn btn-danger profile-button"
+                                        type="button">{% trans 'Discard Changes' %}
                                 </button>
                             </a>
                         </div>
@@ -104,15 +114,15 @@
                 <div class="col-md-4">
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center experience">
-                            <span>Recently Orders</span><a href="{% url 'order_history' %}"
-                                                           style="color: black !important;"><span
+                            <span>{% trans 'Recently Orders' %}</span><a href="{% url 'order_history' %}"
+                                                                         style="color: black !important;"><span
                                 class="border px-3 p-1 add-experience"><i
-                                class="fa fa-plus"></i>&nbsp;Full History</span></a></div>
+                                class="fa fa-plus"></i>&nbsp;{% trans 'Full History' %}</span></a></div>
                         <br>
                         {% for order in orders %}
 
-                            <div class="col-md-12"><label class="labels">Order {{ order.id }} |
-                                Cost {{ order.get_total_cost }}</label>
+                            <div class="col-md-12"><label class="labels">{% trans 'Order' %} {{ order.id }} |
+                                {% trans 'Cost' %} {{ order.get_total_cost }}</label>
                                 {% for item in order.order_items.all %}
                                     <input
                                             type="text"
@@ -121,11 +131,9 @@
                                             value="{{ item }} | {{ order.status }}"
                                             readonly>
                                 {% endfor %}
-
                             </div>
                             <br>
                         {% endfor %}
-
                     </div>
                 </div>
             </div>
