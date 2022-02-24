@@ -20,6 +20,9 @@
         a:hover {
             color: black !important;
         }
+        #logout:hover{
+            background-color: red !important;
+        }
     </style>
     {% block head %}{% endblock %}
 </head>
@@ -78,7 +81,7 @@
                     <a href="{% url 'home' %}" class="article">{% trans 'Back To Home' %}</a>
                 </li>
                 <li>
-                    <a class="article" id="logout">{% trans 'Logout' %}</a>
+                    <a class="article btn" id="logout">{% trans 'Logout' %}</a>
                 </li>
             </ul>
         </nav>
