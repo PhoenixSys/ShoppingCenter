@@ -45,7 +45,8 @@
                         {% for category in categories %}
                             {% if category.parent == None %}
                                 <li>
-                                    <a href="#{{ category.type }}" data-toggle="collapse" aria-expanded="false"
+                                    <a href="#{{ category.type }}" data-toggle="collapse"
+                                       href="{% url 'category_view' category.id %}" aria-expanded="false"
                                        class="dropdown-toggle">{{ category.type }}</a>
                                     <ul class="collapse list-unstyled" id="{{ category.type }}">
                                         {% for cat in categories %}
