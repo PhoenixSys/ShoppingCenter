@@ -192,7 +192,7 @@
             var json = JSON.stringify({"command":"logout"});
             $.ajax({
                 type: "POST",
-                url: "{% url 'order_api' %}",
+                url: "{% url 'rest_framework:logout' %}",
                 data: json,
                 contentType: "application/json",
                 success: function (msg) {
