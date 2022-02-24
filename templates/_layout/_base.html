@@ -20,6 +20,9 @@
         a:hover {
             color: black !important;
         }
+        #logout:hover{
+            background-color: red !important;
+        }
     </style>
     {% block head %}{% endblock %}
 </head>
@@ -45,7 +48,8 @@
                         {% for category in categories %}
                             {% if category.parent == None %}
                                 <li>
-                                    <a href="#{{ category.type }}" data-toggle="collapse" aria-expanded="false"
+                                    <a href="#{{ category.type }}" data-toggle="collapse"
+                                       href="{% url 'category_view' category.id %}" aria-expanded="false"
                                        class="dropdown-toggle">{{ category.type }}</a>
                                     <ul class="collapse list-unstyled" id="{{ category.type }}">
                                         {% for cat in categories %}
@@ -75,6 +79,9 @@
                 </li>
                 <li>
                     <a href="{% url 'home' %}" class="article">{% trans 'Back To Home' %}</a>
+                </li>
+                <li>
+                    <a class="article btn" id="logout">{% trans 'Logout' %}</a>
                 </li>
             </ul>
         </nav>
@@ -168,6 +175,27 @@
             $.ajax({
                 type: "POST",
                 url: "{% url 'order_api' %}",
+                data: json,
+                contentType: "application/json",
+                success: function (msg) {
+                    alert("successful !")
+                },
+                error: function (msg) {
+                    alert("At First Please Login :)");
+                }
+            });
+        });
+    </script>
+    <script>
+        var clicked;
+        $("#logout").click(function () {
+            $.ajaxSetup({
+                headers: {"X-CSRFToken": '{{csrf_token}}'}
+            });
+            var json = JSON.stringify({"command":"logout"});
+            $.ajax({
+                type: "POST",
+                url: "{% url 'rest_framework:logout' %}",
                 data: json,
                 contentType: "application/json",
                 success: function (msg) {

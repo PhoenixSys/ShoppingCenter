@@ -37,16 +37,15 @@
                 <h2>{{ product.name }}</h2>
                 <div class="price"><h3 class="mr-2"><i
                         class="fa fa-rupee text-success"></i>&nbsp;${{ product.final_price }}</h3>
-                    {% if product.discount is not None and product.discount.type == percent %}
+                    {% if product.discount is not None and product.discount.type == 'percent' %}
                         <span
                                 class="mr-2 cut">{{ product.price }}</span>
                         <span class="text-success">{{ product.discount.value }}% OFF</span></div>
-                    {% elif product.discount is not None and product.discount.type == price %}
+                    {% elif product.discount is not None and product.discount.type == 'price' %}
                         <span class="text-success">{{ product.discount.value }} OFF</span></div>
                     {% endif %}
             <div class="d-flex flex-row">
-                <h4> Descriptions : </h4>
-                <h3>{{ product.description }}</h3>
+                <h4> Descriptions : {{ product.description }}</h4>
             </div>
             <div class="mt-3">
                 {% if product.is_active %}

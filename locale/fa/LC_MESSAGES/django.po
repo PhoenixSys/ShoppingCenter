@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 05:01+0000\n"
-"PO-Revision-Date: 2022-02-22 05:04+0000\n"
+"POT-Creation-Date: 2022-02-24 06:37+0000\n"
+"PO-Revision-Date: 2022-02-24 06:39+0000\n"
 "Last-Translator:   <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -169,39 +169,43 @@ msgstr "خانه"
 msgid "About Us"
 msgstr "درباره ما"
 
-#: templates/_layout/_base.html:65
+#: templates/_layout/_base.html:66
 msgid "Profile"
 msgstr "پروفایل"
 
-#: templates/_layout/_base.html:68
+#: templates/_layout/_base.html:69
 msgid "Contact Us"
 msgstr "تماس با ما"
 
-#: templates/_layout/_base.html:74
+#: templates/_layout/_base.html:75
 msgid "Login/Register"
 msgstr "ورود/ثبت نام"
 
-#: templates/_layout/_base.html:77
+#: templates/_layout/_base.html:78
 msgid "Back To Home"
 msgstr "بازگشت به خانه"
 
-#: templates/_layout/_base.html:91
+#: templates/_layout/_base.html:81
+msgid "Logout"
+msgstr "خروج"
+
+#: templates/_layout/_base.html:95
 msgid "Menu"
 msgstr "منو"
 
-#: templates/_layout/_base.html:103 templates/_layout/_base.html:127
+#: templates/_layout/_base.html:107 templates/_layout/_base.html:131
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: templates/_layout/_base.html:111
+#: templates/_layout/_base.html:115
 msgid "Clear Cart"
 msgstr "حذف سبد خرید"
 
-#: templates/_layout/_base.html:140
+#: templates/_layout/_base.html:144
 msgid "Close"
 msgstr "بستن"
 
-#: templates/_layout/_base.html:141
+#: templates/_layout/_base.html:145
 msgid "Order now"
 msgstr "ثبت نهایی"
 
@@ -213,25 +217,23 @@ msgstr "لایک ها"
 msgid "Available"
 msgstr "دردسترس"
 
-#: templates/_layout/cards.html:38 templates/_layout/cards.html:49
+#: templates/_layout/cards.html:39 templates/_layout/cards.html:51
 msgid "Details"
 msgstr "جزییات"
 
-#: templates/_layout/cards.html:42
+#: templates/_layout/cards.html:43
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: templates/_layout/cards.html:46 templates/_layout/cards.html:53
+#: templates/_layout/cards.html:47 templates/_layout/cards.html:55
 msgid "Unavailable"
 msgstr "دردسترس نیست"
 
 #: templates/customers/profile.html:23
-#| msgid "Profile"
 msgid "Profile Settings"
 msgstr "تنظیمات پروفایل"
 
 #: templates/customers/profile.html:42 templates/customers/profile.html:50
-#| msgid "Username"
 msgid "Surname"
 msgstr "نام خانوادگی"
 
@@ -240,17 +242,14 @@ msgid "Mobile Number"
 msgstr "شماره موبایل"
 
 #: templates/customers/profile.html:68
-#| msgid "Address"
 msgid "Default Address"
 msgstr "آدرس پیشفرض"
 
 #: templates/customers/profile.html:83
-#| msgid "PostalCode"
 msgid "Postcode"
 msgstr "کد پستی"
 
 #: templates/customers/profile.html:105
-#| msgid "Profile"
 msgid "Save Profile"
 msgstr "ذخیره پروفایل"
 
@@ -267,7 +266,6 @@ msgid "Full History"
 msgstr "تاریخچه کامل"
 
 #: templates/customers/profile.html:125
-#| msgid "Costumer"
 msgid "Cost"
 msgstr "هزینه"
 
