@@ -78,7 +78,7 @@
                     <a href="{% url 'home' %}" class="article">{% trans 'Back To Home' %}</a>
                 </li>
                 <li>
-                    <a href="{% url 'home' %}" class="article">{% trans 'Logout' %}</a>
+                    <a class="article" id="logout">{% trans 'Logout' %}</a>
                 </li>
             </ul>
         </nav>
@@ -169,6 +169,27 @@
             });
             let ordersValue = cart
             var json = JSON.stringify(ordersValue);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'order_api' %}",
+                data: json,
+                contentType: "application/json",
+                success: function (msg) {
+                    alert("successful !")
+                },
+                error: function (msg) {
+                    alert("At First Please Login :)");
+                }
+            });
+        });
+    </script>
+    <script>
+        var clicked;
+        $("#logout").click(function () {
+            $.ajaxSetup({
+                headers: {"X-CSRFToken": '{{csrf_token}}'}
+            });
+            var json = JSON.stringify({"command":"logout"});
             $.ajax({
                 type: "POST",
                 url: "{% url 'order_api' %}",

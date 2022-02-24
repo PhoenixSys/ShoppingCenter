@@ -74,3 +74,9 @@ class Profile(PermissionRequiredMixin, View):
             Addresses.objects.get_or_create(costumer=costumers, state=data["state"], city=data["city"],
                                             postal_code=data["postal_code"])
         return redirect("home")
+
+
+class LogOutCostumer(View):
+    def post(self, request):
+        del request.user
+        return redirect(request, "home")

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 05:01+0000\n"
+"POT-Creation-Date: 2022-02-24 06:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,39 +167,43 @@ msgstr ""
 msgid "About Us"
 msgstr ""
 
-#: templates/_layout/_base.html:65
+#: templates/_layout/_base.html:66
 msgid "Profile"
 msgstr ""
 
-#: templates/_layout/_base.html:68
+#: templates/_layout/_base.html:69
 msgid "Contact Us"
 msgstr ""
 
-#: templates/_layout/_base.html:74
+#: templates/_layout/_base.html:75
 msgid "Login/Register"
 msgstr ""
 
-#: templates/_layout/_base.html:77
+#: templates/_layout/_base.html:78
 msgid "Back To Home"
 msgstr ""
 
-#: templates/_layout/_base.html:91
+#: templates/_layout/_base.html:81
+msgid "Logout"
+msgstr ""
+
+#: templates/_layout/_base.html:95
 msgid "Menu"
 msgstr ""
 
-#: templates/_layout/_base.html:103 templates/_layout/_base.html:127
+#: templates/_layout/_base.html:107 templates/_layout/_base.html:131
 msgid "Cart"
 msgstr ""
 
-#: templates/_layout/_base.html:111
+#: templates/_layout/_base.html:115
 msgid "Clear Cart"
 msgstr ""
 
-#: templates/_layout/_base.html:140
+#: templates/_layout/_base.html:144
 msgid "Close"
 msgstr ""
 
-#: templates/_layout/_base.html:141
+#: templates/_layout/_base.html:145
 msgid "Order now"
 msgstr ""
 
@@ -211,15 +215,15 @@ msgstr ""
 msgid "Available"
 msgstr ""
 
-#: templates/_layout/cards.html:38 templates/_layout/cards.html:49
+#: templates/_layout/cards.html:39 templates/_layout/cards.html:51
 msgid "Details"
 msgstr ""
 
-#: templates/_layout/cards.html:42
+#: templates/_layout/cards.html:43
 msgid "Add to cart"
 msgstr ""
 
-#: templates/_layout/cards.html:46 templates/_layout/cards.html:53
+#: templates/_layout/cards.html:47 templates/_layout/cards.html:55
 msgid "Unavailable"
 msgstr ""
 
