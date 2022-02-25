@@ -13,6 +13,10 @@
     <link rel='stylesheet'
           href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'>
     <style>
+        body {
+            background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), #232f3e) !important;
+        }
+
         a {
             color: white !important;
         }
@@ -20,7 +24,8 @@
         a:hover {
             color: black !important;
         }
-        #logout:hover{
+
+        #logout:hover {
             background-color: red !important;
         }
     </style>
@@ -192,7 +197,7 @@
             $.ajaxSetup({
                 headers: {"X-CSRFToken": '{{csrf_token}}'}
             });
-            var json = JSON.stringify({"command":"logout"});
+            var json = JSON.stringify({"command": "logout"});
             $.ajax({
                 type: "POST",
                 url: "{% url 'rest_framework:logout' %}",

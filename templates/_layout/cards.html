@@ -1,5 +1,12 @@
 {% extends "_layout/_base.html" %}
 {% load i18n %}
+{% block head %}
+    <style>
+    body {
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), #232f3e);
+    }
+    </style>
+{% endblock %}
 {% block main %}
     <div id="myDIV">
         <div class="container mt-5 mb-5">
@@ -28,8 +35,10 @@
                             </div>
                             <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                                 <div class="d-flex flex-row align-items-center">
-                                    <h4 class="mr-1">${{ data.final_price }}</h4><span
-                                        class="strike-text">${{ data.price }}</span>
+                                    <h4 class="mr-1">${{ data.final_price }}</h4>
+                                    {% if data.discount is not None %}
+                                    <span class="strike-text">${{ data.price }}</span>
+                                    {% endif %}
                                 </div>
                                 {% if data.is_active == True %}
                                     <h6 class="text-success">{% trans 'Available' %}</h6>
