@@ -1,39 +1,62 @@
 {% extends '_layout/_base.html' %}
+{% load static %}
 {% block head %}
-    <style>
-        .form_container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        a {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{% static 'customers/css/register_login_page.css' %}">
 {% endblock %}
 {% block main %}
-    <div class="container form_container">
-        <form method="POST" id="form_login">
-            {% csrf_token %}
-            <table>
-                {{ form.as_table }}
-            </table>
-            <br>
-            <a href="{% url 'admin_password_reset' %}">Forget Password ? Reset It !</a>
-            <br>
-            <a href="{% url 'register' %}">Don't Have Account ? SignUp</a>
-            <br>
-            <input type="submit" class="btn btn-primary" id="submit_btn" value="Submit">
-        </form>
+    <div class="form-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
+                    <div class="form-container">
+                        <div class="form-icon">
+                            <i class="fa fa-user-circle"></i>
+                            <span class="signup"><a
+                                    href="{% url 'login' %}">have account? Login</a></span>
+                        </div>
+                        <form method="POST" class="form-horizontal">
+                            {% csrf_token %}
+                            <div id="div_id_username"
+                             class="clearfix control-group {% if form.username.errors %}error{% endif %}">
+                            <div class="form-group">
+                            <span class="input-icon"><i class="fa fa-phone"></i></span>
+                                <input type="text" name="username" maxlength="100"
+                                       autocapitalize="off"
+                                       autocorrect="off" class="form-control textinput textInput"
+                                       id="id_username" required autofocus
+                                       {% if form.username.value %}value="{{ form.username.value }}" {% endif %}>
+                                {% if form.username.errors %}
+                                <p class="text-error">
+                                    {{ form.username.errors|striptags }}
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div id="div_id_password"
+                             class="clearfix control-group {% if form.password.errors %}error{% endif %}">
+                            <div class="form-group">
+                            <span class="input-icon"><i class="fa fa-lock"></i></span>
+                                <input type="password" name="password" maxlength="100" autocapitalize="off"
+                                       autocorrect="off" class="form-control textinput textInput" id="id_password"
+                                       required>
+                                {% if form.password.errors %}
+                                <p class="text-error">
+                                    {{ form.password.errors|striptags }}
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                            <br>
+                            <a href="{% url 'admin_password_reset' %}">Forget Password ? Reset It !</a>
+                            <br>
+                            <a href="{% url 'register' %}">Don't Have Account ? SignUp</a>
+                            <br>
+                            <input type="submit" class="btn btn-primary" id="submit_btn" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
+
