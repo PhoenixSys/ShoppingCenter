@@ -4,7 +4,6 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import UserManager
 from django.forms import ModelForm
-from django.forms.models import modelform_defines_fields
 
 from core.models import User
 
