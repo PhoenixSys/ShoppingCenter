@@ -1,18 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <a href="{% url 'admin_password_reset' %}">Forget Password ? Reset It !</a>
-    <a href="{% url 'register' %}">Don't Have Account ? SignUp</a>
-    <input type="submit" value="Submit">
-</form>
-</body>
-</html>
+{% extends '_layout/_base.html' %}
+{% block head %}
+    <style>
+        .form_container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #submit {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="container form_container">
+        <form method="POST" id="form_login">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <br>
+            <a href="{% url 'admin_password_reset' %}">Forget Password ? Reset It !</a>
+            <br>
+            <a href="{% url 'register' %}">Don't Have Account ? SignUp</a>
+            <br>
+            <input type="submit" id="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
