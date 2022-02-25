@@ -4,10 +4,21 @@ from django.contrib import admin
 from products.models import Products, Categories, Discount
 
 
-class CustomAdmin(admin.ModelAdmin):
-    search_fields = ["id"]
+class CustomAdminProducts(admin.ModelAdmin):
+    search_fields = ["id", "name", "price", "discount"]
+    list_display = ["id", "name", "price", "discount"]
 
 
-admin.site.register(Products, CustomAdmin)
-admin.site.register(Categories, CustomAdmin)
-admin.site.register(Discount, CustomAdmin)
+class CustomAdminCategories(admin.ModelAdmin):
+    search_fields = ["id", "type", "parent"]
+    list_display = ["id", "type", "parent"]
+
+
+class CustomAdminDiscount(admin.ModelAdmin):
+    search_fields = ["id", "type", "value", "max_price"]
+    list_display = ["id", "type", "value", "max_price"]
+
+
+admin.site.register(Products, CustomAdminProducts)
+admin.site.register(Categories, CustomAdminCategories)
+admin.site.register(Discount, CustomAdminDiscount)
