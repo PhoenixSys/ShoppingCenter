@@ -13,10 +13,10 @@
             flex-wrap: wrap;
         }
 
-        #submit {
+        .btn {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            text-align: center;
         }
 
     </style>
@@ -33,7 +33,7 @@
             <br>
             <a href="{% url 'register' %}">Don't Have Account ? SignUp</a>
             <br>
-            <input type="submit" id="submit" value="Submit">
+            <input type="submit" class="btn btn-primary" id="submit_btn" value="Submit">
         </form>
     </div>
 {% endblock %}
