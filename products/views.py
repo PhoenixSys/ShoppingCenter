@@ -12,10 +12,8 @@ from products.serializer import ProductSerializer
 class ProductsView(View):
     def get(self, request):
         datas = Products.objects.all()
-        categories = Categories.objects.all()
         context = {
             "datas": datas,
-            "categories": categories
         }
         return render(request, "_layout/cards.html", context=context)
 
@@ -53,11 +51,9 @@ class ProductApiDestroy(generics.DestroyAPIView):
 
 class ProductsCategoryView(View):
     def get(self, request, id):
-        categories = Categories.objects.all()
         datas = Products.objects.filter(category=id)
         context = {
             "datas": datas,
-            "categories": categories
         }
         return render(request, "_layout/cards.html", context=context)
 
@@ -65,9 +61,7 @@ class ProductsCategoryView(View):
 class ProductDetailView(View):
     def get(self, request, id):
         product = Products.objects.get(id=id)
-        categories = Categories.objects.all()
         context = {
             "product": product,
-            "categories": categories
         }
         return render(request, "_layout/details.html", context=context)

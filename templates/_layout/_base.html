@@ -79,15 +79,23 @@
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="{% url 'register' %}" class="article">{% trans 'Login/Register' %}</a>
-                </li>
+                {% if not status_logged %}
+                    <li>
+                        <a href="{% url 'register' %}" class="article">{% trans 'Login/Register' %}</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'profile' %}" class="article">{{ customer_username }}</a>
+                    </li>
+                {% endif %}
                 <li>
                     <a href="{% url 'home' %}" class="article">{% trans 'Back To Home' %}</a>
                 </li>
-                <li>
-                    <a class="article btn" id="logout">{% trans 'Logout' %}</a>
-                </li>
+                {% if status_logged %}
+                    <li>
+                        <a class="article btn" id="logout">{% trans 'Logout' %}</a>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
 
