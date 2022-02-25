@@ -28,8 +28,10 @@
                             </div>
                             <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                                 <div class="d-flex flex-row align-items-center">
-                                    <h4 class="mr-1">${{ data.final_price }}</h4><span
-                                        class="strike-text">${{ data.price }}</span>
+                                    <h4 class="mr-1">${{ data.final_price }}</h4>
+                                    {% if data.discount is not None %}
+                                    <span class="strike-text">${{ data.price }}</span>
+                                    {% endif %}
                                 </div>
                                 {% if data.is_active == True %}
                                     <h6 class="text-success">{% trans 'Available' %}</h6>
