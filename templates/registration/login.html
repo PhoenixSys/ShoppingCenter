@@ -12,46 +12,45 @@
                         <div class="form-icon">
                             <i class="fa fa-user-circle"></i>
                             <span class="signup"><a
-                                    href="{% url 'login' %}">have account? Login</a></span>
+                                    href="{% url 'register' %}">have not account? Register</a></span>
                         </div>
                         <form method="POST" class="form-horizontal">
                             {% csrf_token %}
+                            <h3 class="title">Login</h3>
                             <div id="div_id_username"
-                             class="clearfix control-group {% if form.username.errors %}error{% endif %}">
-                            <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-phone"></i></span>
-                                <input type="text" name="username" maxlength="100"
-                                       autocapitalize="off"
-                                       autocorrect="off" class="form-control textinput textInput"
-                                       id="id_username" required autofocus
-                                       {% if form.username.value %}value="{{ form.username.value }}" {% endif %}>
-                                {% if form.username.errors %}
-                                <p class="text-error">
-                                    {{ form.username.errors|striptags }}
-                                </p>
-                                {% endif %}
+                                 class="clearfix control-group {% if form.username.errors %}error{% endif %}">
+                                <div class="form-group">
+                                    <span class="input-icon"><i class="fa fa-phone"></i></span>
+                                    <input type="text" name="username" maxlength="100"
+                                           autocapitalize="off"
+                                           autocorrect="off" class="form-control textinput textInput"
+                                           id="id_username" required autofocus
+                                           {% if form.username.value %}value="{{ form.username.value }}" {% endif %}>
+                                    {% if form.username.errors %}
+                                        <p class="text-error">
+                                            {{ form.username.errors|striptags }}
+                                        </p>
+                                    {% endif %}
+                                </div>
                             </div>
-                        </div>
-                        <div id="div_id_password"
-                             class="clearfix control-group {% if form.password.errors %}error{% endif %}">
-                            <div class="form-group">
-                            <span class="input-icon"><i class="fa fa-lock"></i></span>
-                                <input type="password" name="password" maxlength="100" autocapitalize="off"
-                                       autocorrect="off" class="form-control textinput textInput" id="id_password"
-                                       required>
-                                {% if form.password.errors %}
-                                <p class="text-error">
-                                    {{ form.password.errors|striptags }}
-                                </p>
-                                {% endif %}
+                            <div id="div_id_password"
+                                 class="clearfix control-group {% if form.password.errors %}error{% endif %}">
+                                <div class="form-group">
+                                    <span class="input-icon"><i class="fa fa-lock"></i></span>
+                                    <input type="password" name="password" maxlength="100" autocapitalize="off"
+                                           autocorrect="off" class="form-control textinput textInput" id="id_password"
+                                           required>
+                                    {% if form.password.errors %}
+                                        <p class="text-error">
+                                            {{ form.password.errors|striptags }}
+                                        </p>
+                                    {% endif %}
+                                </div>
                             </div>
-                        </div>
                             <br>
-                            <a href="{% url 'admin_password_reset' %}">Forget Password ? Reset It !</a>
-                            <br>
-                            <a href="{% url 'register' %}">Don't Have Account ? SignUp</a>
-                            <br>
-                            <input type="submit" class="btn btn-primary" id="submit_btn" value="Submit">
+                            <input type="submit" class="btn btn-primary" id="submit_btn" value="Login">
+                            <span class="forgot-pass"><a href="{% url 'admin_password_reset' %}"
+                                                         style="color: black !important;">Forgot Password?</a></span>
                         </form>
                     </div>
                 </div>
