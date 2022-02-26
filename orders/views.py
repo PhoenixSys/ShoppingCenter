@@ -57,9 +57,7 @@ class OrderHistory(PermissionRequiredMixin, View):
         user = request.user
         costumer = Costumers.objects.get(user=user)
         orders = Order.objects.filter(costumer=costumer)
-        categories = Categories.objects.all()
         context = {
             "orders": orders,
-            "categories": categories,
         }
         return render(request, "orders/full_history.html", context)
