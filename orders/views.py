@@ -18,7 +18,7 @@ class OrderApiView(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, format=None):
+    def get(self, request):
         order_ser = OrderSerializer(instance=Order.objects.all(), many=True)
         order_items_ser = OrderItemsSerializer(instance=OrderItem.objects.all(), many=True)
         content = {
@@ -28,7 +28,7 @@ class OrderApiView(APIView):
         }
         return Response(content)
 
-    def post(self, request, format=None):
+    def post(self, request):
         user = request.user
         costumer = Costumers.objects.get(user=user)
         order = Order.objects.create(costumer=costumer)
