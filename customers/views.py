@@ -45,13 +45,12 @@ class Profile(PermissionRequiredMixin, View):
 
     def get(self, request):
         user = request.user
-        categories = Categories.objects.all()
         costumer = Costumers.objects.get(user_id=user.id)
         orders = Order.objects.filter(costumer=costumer)[:3]
-        addresses = Addresses.objects.filter(costumer_id=costumer.id).all()
+        print(orders)
+        addresses = Addresses.objects.filter(costumer=costumer).all()
         context = {
             "userInfo": costumer,
-            "categories": categories,
             "addresses": addresses,
             "orders": orders
         }

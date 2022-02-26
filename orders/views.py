@@ -30,7 +30,7 @@ class OrderApiView(APIView):
 
     def post(self, request, format=None):
         user = request.user
-        costumer = Costumers.objects.get(id=user.id)
+        costumer = Costumers.objects.get(user=user)
         order = Order.objects.create(costumer=costumer)
         check = ItemSerializer(data=request.data, many=True)
         if check.is_valid():
