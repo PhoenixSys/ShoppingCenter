@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-25 12:35+0000\n"
-"PO-Revision-Date: 2022-02-25 12:38+0000\n"
+"POT-Creation-Date: 2022-02-26 15:39+0000\n"
+"PO-Revision-Date: 2022-02-26 15:40+0000\n"
 "Last-Translator: Admin Admin <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,8 +20,13 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: contact/apps.py:8
-#| msgid "Contact Us"
 msgid "contact"
+msgstr "تماس با ما"
+
+#: contact/models.py:14 contact/models.py:15
+#, fuzzy
+#| msgid "Contact Us"
+msgid "ContactUs"
 msgstr "تماس با ما"
 
 #: core/apps.py:8
@@ -53,7 +58,6 @@ msgid "This is active status"
 msgstr ""
 
 #: customers/apps.py:8
-#| msgid "Costumers"
 msgid "customers"
 msgstr "مشتری ها"
 
@@ -86,7 +90,6 @@ msgid "Costumers"
 msgstr "مشتری ها"
 
 #: orders/apps.py:8
-#| msgid "Orders"
 msgid "orders"
 msgstr "سفارش ها"
 
@@ -99,7 +102,7 @@ msgid "Paid"
 msgstr "پرداخت شده "
 
 #: orders/models.py:23 orders/models.py:35
-#: templates/customers/profile.html:124
+#: templates/customers/profile.html:123
 msgid "Order"
 msgstr "سفارش"
 
@@ -120,7 +123,6 @@ msgid "OrderItems"
 msgstr "آیتم های داخل سفارش"
 
 #: products/apps.py:8
-#| msgid "Products"
 msgid "products"
 msgstr "محصولات"
 
@@ -287,7 +289,6 @@ msgid "Enter a username and password."
 msgstr ""
 
 #: templates/admin/auth/user/change_password.html:37
-#| msgid "Password"
 msgid "Change password"
 msgstr "تغییر پسورد"
 
@@ -329,7 +330,6 @@ msgstr ""
 
 #: templates/admin/change_form_object_tools.html:5
 #: templates/admin/object_history.html:28
-#| msgid "Full History"
 msgid "History"
 msgstr "تاریخچه"
 
@@ -472,7 +472,6 @@ msgid "Unknown content"
 msgstr ""
 
 #: templates/admin/index.html:275
-#| msgid "Unavailable"
 msgid "None available"
 msgstr "دردسترس نیست"
 
@@ -598,7 +597,7 @@ msgstr "سفارش های اخیر"
 msgid "Full History"
 msgstr "تاریخچه کامل"
 
-#: templates/customers/profile.html:125
+#: templates/customers/profile.html:124
 msgid "Cost"
 msgstr "هزینه"
 

@@ -13,3 +13,6 @@ class ContactUs(BaseModel):
     class Meta:
         verbose_name = _("ContactUs")
         verbose_name_plural = _("ContactUs")
+
+    def __str__(self):
+        return f"{self.name} | {self.email} | {self.text}"
