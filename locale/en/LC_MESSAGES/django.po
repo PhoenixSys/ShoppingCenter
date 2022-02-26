@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-25 12:35+0000\n"
+"POT-Creation-Date: 2022-02-26 15:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,10 @@ msgstr ""
 
 #: contact/apps.py:8
 msgid "contact"
+msgstr ""
+
+#: contact/models.py:14 contact/models.py:15
+msgid "ContactUs"
 msgstr ""
 
 #: core/apps.py:8
@@ -94,7 +98,7 @@ msgstr ""
 msgid "Paid"
 msgstr ""
 
-#: orders/models.py:23 orders/models.py:35 templates/customers/profile.html:124
+#: orders/models.py:23 orders/models.py:35 templates/customers/profile.html:123
 msgid "Order"
 msgstr ""
 
@@ -601,6 +605,6 @@ msgstr ""
 msgid "Full History"
 msgstr ""
 
-#: templates/customers/profile.html:125
+#: templates/customers/profile.html:124
 msgid "Cost"
 msgstr ""
