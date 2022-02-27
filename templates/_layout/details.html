@@ -44,7 +44,7 @@
                         class="fa fa-rupee text-success"></i>&nbsp;${{ product.final_price }}</h3>
                     {% if product.discount is not None and product.discount.type == 'percent' %}
                         <span
-                                class="mr-2 cut">{{ product.price }}</span>
+                                class="mr-2 cut">${{ product.price }}</span>
                         <span class="text-success">{{ product.discount.value }}% OFF</span></div>
                     {% elif product.discount is not None and product.discount.type == 'price' %}
                         <span class="text-success">{{ product.discount.value }} Dollar OFF</span></div>
@@ -62,7 +62,7 @@
             </div>
             <div class="mt-3">
                 {% if product.is_active %}
-                    <h4>Status : <span style="color: green ; font-size: 22px">Available</span></h4>
+                    <h4>Status : <span style="color: lightgreen ; font-size: 22px">Available</span></h4>
                     <br>
                     <button class="btn add-to-cart btn-primary mr-2" type="button"
                             data-name="{{ product.name|space_to_underline }}" data-price="{{ product.final_price }}">ADD
