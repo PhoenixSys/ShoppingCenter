@@ -1,0 +1,77 @@
+{% extends "_layout/_base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'By Category' %}{% endblock %}
+{% block head %}
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), #232f3e);
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div id="myDIV">
+        <div class="container mt-5 mb-5">
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-10">
+                    {% for data in datas %}
+                        <div class="row p-2 bg-white border rounded">
+                            <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                                                            src="{{ data.image.url }}"
+                                                            style="height:200px ; width:200px ;background-size: cover;">
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <h5>{{ data.name }}</h5>
+                                <div class="d-flex flex-row">
+                                    <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <span>{% trans 'Likes' %}</span>
+                                </div>
+                                <div class="mt-1 mb-1 spec-1">
+                                    {% for category in data.category.all %}
+                                        <span class="dot"></span><span>{{ category.type }}</span>
+                                    {% endfor %}
+                                </div>
+                                <h4 class="text-justify text-truncate para mb-0"><i
+                                        class="fas fa-info-circle"></i> {{ data.description }}<br><br></h4>
+                            </div>
+                            <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                <div class="d-flex flex-row align-items-center">
+                                    <h4 class="mr-1">${{ data.final_price }}</h4>
+                                    {% if data.discount is not None %}
+                                        <span class="strike-text">${{ data.price }}</span>
+                                    {% endif %}
+                                </div>
+                                {% if data.is_active == True %}
+                                    <h6 class="text-success">{% trans 'Available' %}</h6>
+                                    <div class="d-flex flex-column mt-4">
+                                        <a class="btn btn-primary btn-sm text-white"
+                                           type="button"
+                                           href="{% url 'product_detail' data.id %}">{% trans 'Details' %}</a>
+                                        <button class="add-to-cart btn btn-outline-primary btn-sm mt-2" href="#"
+                                                data-name="{{ data.name|space_to_underline }}"
+                                                data-price="{{ data.final_price }}"
+                                                type="button">{% trans 'Add to cart' %}
+                                        </button>
+                                    </div>
+                                {% else %}
+                                    <h6 class="text-danger">{% trans 'Unavailable' %}</h6>
+                                    <div class="d-flex flex-column mt-4">
+                                        <a class="btn btn-primary btn-sm text-white"
+                                           type="button"
+                                           href="{% url 'product_detail' data.id %}">{% trans 'Details' %}</a>
+                                        <button class="btn btn-outline-danger btn-sm mt-2" href="#"
+                                                data-name="{{ data.name }}"
+                                                data-price="{{ data.final_price }}"
+                                                type="button">{% trans 'Unavailable' %}
+                                        </button>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -55,7 +55,7 @@ class ProductsCategoryView(View):
         context = {
             "datas": datas,
         }
-        return render(request, "_layout/cards.html", context=context)
+        return render(request, "_layout/categories.html", context=context)
 
 
 class ProductDetailView(View):
@@ -74,4 +74,4 @@ class HaveDiscount(View):
         context = {
             "datas": datas,
         }
-        return render(request, "_layout/cards.html", context=context)
+        return render(request, "_layout/have_discount.html", context=context)
