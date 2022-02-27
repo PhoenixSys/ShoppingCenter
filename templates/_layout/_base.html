@@ -51,6 +51,9 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
                        class="dropdown-toggle">{% trans 'Categories' %}</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="{% url 'have_discount' %}">{% trans 'Products Have Discount' %}</a>
+                        </li>
                         {% for category in categories %}
                             {% if category.parent == None %}
                                 <li>
@@ -61,7 +64,7 @@
                                         {% for cat in categories %}
                                             {% if cat.parent.type == category.type %}
                                                 <li>
-                                                    <a href="{% url 'category_view' category.id %} ">{{ cat.type }}</a>
+                                                    <a href="{% url 'category_view' cat.id %} ">{{ cat.type }}</a>
                                                 </li>
                                             {% endif %}
                                         {% endfor %}
