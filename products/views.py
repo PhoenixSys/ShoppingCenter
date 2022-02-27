@@ -11,7 +11,7 @@ from products.serializer import ProductSerializer
 
 class ProductsView(View):
     def get(self, request):
-        datas = Products.objects.all().order_by("created").reverse()
+        datas = Products.objects.all().order_by("created").reverse()[:10]
         context = {
             "datas": datas,
         }
