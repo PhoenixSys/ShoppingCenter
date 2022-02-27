@@ -128,7 +128,7 @@
                                             type="text"
                                             class="form-control"
                                             placeholder="Orders"
-                                            value="{{ item }} | {{ order.status }}"
+                                            value="{{ item }} | {{ order.get_status_display }}"
                                             readonly>
                                 {% endfor %}
                             </div>
