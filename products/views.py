@@ -22,7 +22,6 @@ class ProductsView(View):
         product_name = data[0]["name"]
         product_price = data[0]["price"]
         product_count = data[0]["count"]
-        print(product_name, product_price, product_count)
         response = JsonResponse({"status_code": 200})
         response.status_code = 200
         return response
