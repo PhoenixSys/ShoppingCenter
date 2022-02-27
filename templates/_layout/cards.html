@@ -1,11 +1,11 @@
 {% extends "_layout/_base.html" %}
 {% load i18n %}
-{% block title %}Home{% endblock %}
+{% block title %}{% trans 'Home' %}{% endblock %}
 {% block head %}
     <style>
-    body {
-        background-image: linear-gradient(to bottom, rgba(255,0,0,0), #232f3e);
-    }
+        body {
+            background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), #232f3e);
+        }
     </style>
 {% endblock %}
 {% block main %}
@@ -38,7 +38,7 @@
                                 <div class="d-flex flex-row align-items-center">
                                     <h4 class="mr-1">${{ data.final_price }}</h4>
                                     {% if data.discount is not None %}
-                                    <span class="strike-text">${{ data.price }}</span>
+                                        <span class="strike-text">${{ data.price }}</span>
                                     {% endif %}
                                 </div>
                                 {% if data.is_active == True %}

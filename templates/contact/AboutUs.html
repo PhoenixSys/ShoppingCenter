@@ -1,6 +1,7 @@
 {% extends '_layout/_base.html' %}
 {% load static %}
-{% block title %}About US{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'About US' %}{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'contact/AboutUs.css' %}">
 {% endblock %}
@@ -9,7 +10,8 @@
         <!--Section heading-->
         <h2 class="section-heading h1 pt-4" style="color: black">About Us</h2>
         <!--Section description-->
-        <p class="section-description pb-4" style="color: black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut
+        <p class="section-description pb-4" style="color: black">Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Aliquid aut
             consequatur consequuntur ducimus illo praesentium similique sit vitae voluptatum? Aut dicta eveniet facere
             facilis fuga iusto laudantium quia totam veniam.</p>
 

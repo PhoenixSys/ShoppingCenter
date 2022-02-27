@@ -1,6 +1,7 @@
 {% extends '_layout/_base.html' %}
+{% load i18n %}
 {% load static %}
-{% block title %}Details{% endblock %}
+{% block title %}{% trans 'Details' %}{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{% static '_layout/css/details.css' %}">
     <style>

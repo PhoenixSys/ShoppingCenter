@@ -1,6 +1,7 @@
 {% extends '_layout/_base.html' %}
 {% load static %}
-{% block title %}Register{% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Register' %}{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'customers/css/register_login_page.css' %}">
 {% endblock %}
