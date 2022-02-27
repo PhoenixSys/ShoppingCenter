@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-body {
-    background: #fff;
-    font-family: 'Roboto Condensed', sans-serif
-}
 
 .carousel-item {
     width: 100%

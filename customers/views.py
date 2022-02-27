@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.messages import get_messages, add_message
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
@@ -24,6 +25,9 @@ class RegisterLoginView(View):
         try:
             user = User.objects.create_user(username=data["phone"], email=data["email"], password=data["password"],
                                             phone=data["phone"])
+            content = ContentType.objects.get_for_model(User)
+            Permission.objects.get_or_create(codename="authenticated", name="Can See Profile",
+                                             content_type=content)
             perm = Permission.objects.get(codename="authenticated")
             user.user_permissions.add(perm)
             Costumers.objects.create(user=user)
@@ -47,7 +51,6 @@ class Profile(PermissionRequiredMixin, View):
         user = request.user
         costumer = Costumers.objects.get(user_id=user.id)
         orders = Order.objects.filter(costumer=costumer)[:3]
-        print(orders)
         addresses = Addresses.objects.filter(costumer=costumer).all()
         context = {
             "userInfo": costumer,
