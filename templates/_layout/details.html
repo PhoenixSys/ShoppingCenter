@@ -56,7 +56,8 @@
             <div class="d-flex flex-row">
                 <h4> Categories : <br><span style="color:white ; font-size: 20px">
                     {% for category in product.category.all %}
-                        <span class="dot"></span><span>{{ category.type }}</span>
+                        <a href="{% url 'category_view' category.id %}"><span
+                                class="dot"></span><span>{{ category.type }}</span></a>
                     {% endfor %}
                 </span></h4>
             </div>
