@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel='stylesheet'
           href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'>
+    <link rel="icon" type="image/x-icon" href="{% static '_layout/icon/favicon.ico' %}">
     <style>
         body {
             background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), #232f3e) !important;
@@ -53,9 +54,9 @@
                         {% for category in categories %}
                             {% if category.parent == None %}
                                 <li>
-                                    <a href="#{{ category.type }}" data-toggle="collapse"
+                                    <a data-toggle="collapse" data-target="#{{ category.type }}"
                                        href="{% url 'category_view' category.id %}" aria-expanded="false"
-                                       class="dropdown-toggle">{{ category.type }}</a>
+                                       class="dropdown-toggle">{{ category.type }} </a>
                                     <ul class="collapse list-unstyled" id="{{ category.type }}">
                                         {% for cat in categories %}
                                             {% if cat.parent.type == category.type %}
