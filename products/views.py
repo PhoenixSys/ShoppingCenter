@@ -51,7 +51,7 @@ class ProductApiDestroy(generics.DestroyAPIView):
 
 class ProductsCategoryView(View):
     def get(self, request, id):
-        datas = Products.objects.filter(category=id)
+        datas = Products.objects.filter(category__products=1)
         context = {
             "datas": datas,
         }
