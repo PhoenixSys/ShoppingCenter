@@ -11,7 +11,7 @@ class Products(BaseModel):
     price = models.IntegerField(verbose_name=_("Price"))
     discount = models.ForeignKey("Discount", on_delete=models.RESTRICT, null=True, blank=True,
                                  verbose_name=_("Discount"))
-    image = models.ImageField(upload_to="uploads/", null=True, blank=True, verbose_name=_("Image"),
+    image = models.ImageField(upload_to="uploads/", verbose_name=_("Image"),
                               help_text="Best format is .png or .jpg")
     description = models.TextField(null=True, blank=True, verbose_name=_("Description"))
 
