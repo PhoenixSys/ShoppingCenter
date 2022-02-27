@@ -44,7 +44,7 @@
                                 class="mr-2 cut">{{ product.price }}</span>
                         <span class="text-success">{{ product.discount.value }}% OFF</span></div>
                     {% elif product.discount is not None and product.discount.type == 'price' %}
-                        <span class="text-success">{{ product.discount.value }} OFF</span></div>
+                        <span class="text-success">{{ product.discount.value }} Dollar OFF</span></div>
                     {% endif %}
             <div class="d-flex flex-row">
                 <h4> Descriptions : {{ product.description }}</h4>
