@@ -61,7 +61,7 @@
                                         {% for cat in categories %}
                                             {% if cat.parent.type == category.type %}
                                                 <li>
-                                                    <a href="{% url 'category_view' category.id %} ">{{ cat.type }}</a>
+                                                    <a href="{% url 'category_view' cat.id %} ">{{ cat.type }}</a>
                                                 </li>
                                             {% endif %}
                                         {% endfor %}
