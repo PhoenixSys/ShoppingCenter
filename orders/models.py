@@ -9,13 +9,13 @@ from products.models import Products
 ORDER_STATUS = Choices(
     (0, 'CANCEL', 'Cancel'),
     (1, 'UNPAID', 'Unpaid'),
-    (2, 'PAIN', 'Paid'),
+    (2, 'PAID', 'Paid'),
 )
 
 
 class Order(BaseModel):
     costumer = models.ForeignKey(Costumers, on_delete=models.RESTRICT, verbose_name=_("Costumers"))
-    address = models.OneToOneField(Addresses, on_delete=models.CASCADE, verbose_name=_("address"))
+    address = models.ForeignKey(Addresses, on_delete=models.CASCADE, verbose_name=_("address"))
     status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name=_('Status'))
     is_paid = models.BooleanField(default=False, verbose_name=_('Paid'))
 

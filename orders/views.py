@@ -48,6 +48,9 @@ class OrderApiView(APIView):
                         order_f.save()
                     else:
                         print(order_f.errors)
+                        raise ProcessLookupError
+                order.status = 2
+                order.save()
             return Response({"result": "SUCCESS"})
         else:
             return Response({"error": "Please Select A valid Default Address !"}, status=401)
