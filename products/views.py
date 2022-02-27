@@ -65,3 +65,13 @@ class ProductDetailView(View):
             "product": product,
         }
         return render(request, "_layout/details.html", context=context)
+
+
+class HaveDiscount(View):
+
+    def get(self, request):
+        datas = Products.objects.filter(discount_id__isnull=False)
+        context = {
+            "datas": datas,
+        }
+        return render(request, "_layout/cards.html", context=context)
