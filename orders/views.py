@@ -31,23 +31,26 @@ class OrderApiView(APIView):
     def post(self, request):
         user = request.user
         costumer = Costumers.objects.get(user=user)
-        order = Order.objects.create(costumer=costumer)
-        check = ItemSerializer(data=request.data, many=True)
-        if check.is_valid():
-            for i in request.data:
-                i["order"] = order.id
-                item = Products.objects.get(name=i["name"].replace("_", " "))
-                i["item"] = item.id
-                i["quantity"] = i["count"]
-                del i["name"]
-                del i["price"]
-                del i["count"]
-                order_f = OrderItemsSerializer(data=i)
-                if order_f.is_valid():
-                    order_f.save()
-                else:
-                    print(order_f.errors)
-        return Response({})
+        if costumer.default_address is not None:
+            order = Order.objects.create(costumer=costumer)
+            check = ItemSerializer(data=request.data, many=True)
+            if check.is_valid():
+                for i in request.data:
+                    i["order"] = order.id
+                    item = Products.objects.get(name=i["name"].replace("_", " "))
+                    i["item"] = item.id
+                    i["quantity"] = i["count"]
+                    del i["name"]
+                    del i["price"]
+                    del i["count"]
+                    order_f = OrderItemsSerializer(data=i)
+                    if order_f.is_valid():
+                        order_f.save()
+                    else:
+                        print(order_f.errors)
+            return Response({"result": "SUCCESS"})
+        else:
+            return Response({"error": "Please Select A valid Default Address !"}, status=401)
 
 
 class OrderHistory(PermissionRequiredMixin, View):
