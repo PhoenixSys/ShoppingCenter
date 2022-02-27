@@ -32,7 +32,7 @@ class OrderApiView(APIView):
         user = request.user
         costumer = Costumers.objects.get(user=user)
         if costumer.default_address is not None:
-            order = Order.objects.create(costumer=costumer)
+            order = Order.objects.create(costumer=costumer, address_id=costumer.default_address.id)
             check = ItemSerializer(data=request.data, many=True)
             if check.is_valid():
                 for i in request.data:
