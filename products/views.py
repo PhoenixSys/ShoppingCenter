@@ -78,6 +78,7 @@ class HaveDiscount(View):
 
 class SearchProducts(View):
     def get(self, request, query):
+        # http://127.0.0.1:8000/fa/search/acer
         products = Products.objects.filter(name__contains=query)
         context = {
             "datas": products
