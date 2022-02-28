@@ -74,3 +74,12 @@ class HaveDiscount(View):
             "datas": datas,
         }
         return render(request, "_layout/have_discount.html", context=context)
+
+
+class SearchProducts(View):
+    def get(self, request, query):
+        products = Products.objects.filter(name__search=query)
+        context = {
+            "datas": products
+        }
+        render(request, "_layout/search_page.html", context=context)
