@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-26 15:39+0000\n"
-"PO-Revision-Date: 2022-02-27 10:00+0000\n"
-"Last-Translator:   <mobinatashi2@gmail.com>\n"
+"PO-Revision-Date: 2022-02-28 11:15+0000\n"
+"Last-Translator: Mobin Atashi <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -240,7 +240,7 @@ msgstr "لایک ها"
 
 #: templates/_layout/cards.html:44
 msgid "Available"
-msgstr "دردسترس"
+msgstr "موجود"
 
 #: templates/_layout/cards.html:48 templates/_layout/cards.html:60
 msgid "Details"
@@ -252,7 +252,7 @@ msgstr "اضافه به سبد خرید"
 
 #: templates/_layout/cards.html:56 templates/_layout/cards.html:64
 msgid "Unavailable"
-msgstr "دردسترس نیست"
+msgstr "ناموجود"
 
 #: templates/admin/actions.html:14
 msgid "Run the selected action"
