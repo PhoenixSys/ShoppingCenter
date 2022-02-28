@@ -122,18 +122,54 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-
                                 <button type="button" class="btn btn-success" data-toggle="modal"
                                         data-target="#cart"><i class="fas fa-shopping-cart"></i> {% trans 'Cart' %}
                                     (<span
                                             class="total-count"></span>)
                                 </button>
-
                             </li>
                             <li class="nav-item">
                                 <button class="clear-cart btn btn-danger"><i
                                         class="fa-solid fa-trash-can"></i> {% trans 'Clear Cart' %}
                                 </button>
+                            </li>
+                            <li>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Search Box</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <div class="input-group">
+                                                    <div class="form-outline">
+                                                        <input type="search" id="search_input" class="form-control"/>
+                                                    </div>
+                                                    <button type="button" id="search_btn" class="btn btn-primary">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </li>
                         </ul>
                     </div>
@@ -223,6 +259,13 @@
                     alert("You Are Not Login Yet !");
                 }
             });
+        });
+    </script>
+    <script>
+        var clicked;
+        $("#search_btn").click(function () {
+            var query = $("#search_input").val()
+            window.location.replace(`http://127.0.0.1:8000/search/${query}`);
         });
     </script>
 {% endblock %}
