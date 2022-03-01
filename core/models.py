@@ -61,7 +61,7 @@ class BaseUserManager(UserManager):
         return super().create_user(username, email, password, **extra_fields)
 
 
-class IpManagerDb(BaseModel):
+class IpManagerDb(models.Model):
     ip = models.CharField(max_length=16, unique=True, verbose_name=_("Ip"))
     views = models.IntegerField(default=0, verbose_name=_("Views"))
     access = models.BooleanField(default=True, verbose_name=_("Access"))
