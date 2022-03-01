@@ -12,8 +12,10 @@ from products.serializer import ProductSerializer
 class ProductsView(View):
     def get(self, request):
         datas = Products.objects.all().order_by("created").reverse()[:10]
+        newest = Products.objects.all().order_by("created").reverse()[:3]
         context = {
             "datas": datas,
+            "newest":newest
         }
         return render(request, "_layout/cards.html", context=context)
 
