@@ -14,7 +14,7 @@ ORDER_STATUS = Choices(
 
 
 class Order(BaseModel):
-    costumer = models.ForeignKey(Costumers, on_delete=models.RESTRICT, verbose_name=_("Costumers"))
+    costumer = models.ForeignKey(Costumers, on_delete=models.RESTRICT, verbose_name=_("Costumer"))
     address = models.ForeignKey(Addresses, on_delete=models.CASCADE, verbose_name=_("address"))
     status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name=_('Status'))
     is_paid = models.BooleanField(default=False, verbose_name=_('Paid'))

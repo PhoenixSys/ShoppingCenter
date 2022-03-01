@@ -2,10 +2,8 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import UserManager
-from django.forms import ModelForm
 
-from core.models import User
+from core.models import User, IpManagerDb
 
 UserAdmin.list_display = ('phone', 'email', 'first_name', 'last_name', 'is_staff')
 UserAdmin.search_fields = ('phone', 'first_name', 'last_name', 'email')
@@ -17,4 +15,12 @@ UserAdmin.add_fieldsets = (
         'fields': ('phone', "username", "email", 'password1', 'password2'),
     }),
 )
+
+
+class CustomAdminIpManager(admin.ModelAdmin):
+    search_fields = ["id", "ip", "views", "access"]
+    list_display = ["id", "ip", "views", "access"]
+
+
 admin.site.register(User, UserAdmin)
+admin.site.register(IpManagerDb, CustomAdminIpManager)
