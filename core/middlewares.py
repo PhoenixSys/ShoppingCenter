@@ -15,9 +15,9 @@ class IpManager:
         request_ip = requests.get("https://api.ipify.org?format=json").json()["ip"]
         IpManagerDb.objects.get_or_create(ip=request_ip)
         ip = IpManagerDb.objects.get(ip=request_ip)
-        ip.views += 1
-        ip.save()
         if ip.access is True:
+            ip.views += 1
+            ip.save()
             response = self.get_response(request)
             return response
         else:
