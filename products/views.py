@@ -13,7 +13,7 @@ class ProductsView(View):
     def get(self, request):
         datas = Products.objects.all().order_by("created").reverse()[:3]
         newest = Products.objects.filter(discount__isnull=False).filter(discount__type="percent").filter(
-            discount__value__ge=40).reverse()[:3]
+            discount__value__gte=40).reverse()[:3]
         context = {
             "datas": datas,
             "newest": newest
