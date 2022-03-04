@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5f!a92p1&k_wyqnipaol8j566+6b$+!&7z88i8gg#gk3de9(e&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 JAZZMIN_SETTINGS = {
