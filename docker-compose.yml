@@ -24,3 +24,12 @@ services:
       - db
     expose:
       - "8000"
+  nginx:
+    command: nginx -g "daemon off;"
+    depends_on:
+      - web
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
