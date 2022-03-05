@@ -32,8 +32,11 @@
                                 <input class="form-control" name="password" type="password" placeholder="Password">
                             </div>
                             <button class="btn signin">Register</button>
-                            <span class="forgot-pass"><a href="{% url 'admin_password_reset' %}"
-                                                         style="color: black !important;">Forgot Password?</a></span>
+                            {% url 'admin_password_reset' as password_reset_url %}
+                            {% if password_reset_url %}
+                                <span class="forgot-pass"><a href="{{ password_reset_url }}"
+                                                             style="color: black !important;">Forgot Password?</a></span>
+                            {% endif %}
                         </form>
                     </div>
                 </div>
