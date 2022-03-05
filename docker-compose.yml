@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.10"
 
 services:
   db:
@@ -9,11 +9,13 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c  "python manage.py makemigartions && python manage.py migrate && gunicorn ShoppingCenter.wsgi -b 0.0.0.0:8000"
     volumes:
-      - .:/code
+      - .:/ariana/
     ports:
       - "8000:8000"
     environment:
@@ -22,3 +24,5 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+    expose:
+      - "8000"
