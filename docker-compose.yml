@@ -7,11 +7,9 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5432:5432"
   web:
     build: .
-    command: sh -c  "python manage.py makemigartions && python manage.py migrate && gunicorn ShoppingCenter.wsgi -b 0.0.0.0:8000"
+    command: sh -c  "python manage.py makemigrations && python manage.py migrate && gunicorn ShoppingCenter.wsgi -b 0.0.0.0:8000"
     volumes:
       - .:/code/
     ports:
@@ -22,14 +20,3 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
-    expose:
-      - "8000"
-  nginx:
-    command: nginx -g "daemon off;"
-    depends_on:
-      - web
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
