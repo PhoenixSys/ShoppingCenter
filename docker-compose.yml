@@ -15,7 +15,7 @@ services:
     build: .
     command: sh -c  "python manage.py makemigartions && python manage.py migrate && gunicorn ShoppingCenter.wsgi -b 0.0.0.0:8000"
     volumes:
-      - .:/ariana/
+      - .:/code/
     ports:
       - "8000:8000"
     environment:
