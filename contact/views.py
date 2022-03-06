@@ -13,10 +13,8 @@ from products.models import Categories
 class ContactView(View):
     def get(self, request):
         message = get_messages(request)
-        categories = Categories.objects.all()
         context = {
             "messages": message,
-            "categories": categories
         }
         return render(request, "contact/ContactUs.html", context=context)
 
@@ -29,7 +27,7 @@ class ContactView(View):
             ContactUs.objects.create(name=name, email=email, text=text)
             send_mail(
                 'Congratulations !',
-                f'Dare {name} , Your Message Received !\nBest Regards',
+                f'Dear {name} , Your Message Received !\nBest Regards',
                 from_email=None,
                 recipient_list=[f"{email}"],
                 fail_silently=False,

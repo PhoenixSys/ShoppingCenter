@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.core.mail import send_mail
 from django.shortcuts import render
 
 # Create your views here.
@@ -47,11 +48,17 @@ class OrderApiView(APIView):
                     if order_f.is_valid():
                         order_f.save()
                     else:
-                        print(order_f.errors)
                         raise ProcessLookupError
                 order.status = 2
                 order.save()
-            return Response({"result": "SUCCESS"})
+                send_mail(
+                    'Congratulations !',
+                    f'Dear Admin , You Received A New Order From Customer : {costumer.user.username} !',
+                    from_email=None,
+                    recipient_list=["mobinatashi2@gmail.com"],
+                    fail_silently=False,
+                )
+                return Response({"result": "SUCCESS"})
         else:
             return Response({"error": "Please Select A valid Default Address !"}, status=401)
 
