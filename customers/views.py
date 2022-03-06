@@ -75,4 +75,7 @@ class Profile(PermissionRequiredMixin, View):
         if len(data["state"]) >= 3 and len(data["city"]) >= 3 and len(data["postal_code"]) >= 3:
             Addresses.objects.get_or_create(costumer=costumers, state=data["state"], city=data["city"],
                                             postal_code=data["postal_code"])
+            if costumers.default_address_id is None:
+                costumers.default_address_id = Addresses.objects.get(postal_code=data["postal_code"])
+                costumers.save()
         return redirect("home")
