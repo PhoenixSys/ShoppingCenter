@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
@@ -30,6 +31,7 @@ class RegisterLoginView(View):
                                              content_type=content)
             perm = Permission.objects.get(codename="authenticated")
             user.user_permissions.add(perm)
+            user.save()
             Costumers.objects.create(user=user)
             send_mail(
                 'Congratulations !',
@@ -38,6 +40,8 @@ class RegisterLoginView(View):
                 recipient_list=[f"{user.email}"],
                 fail_silently=False,
             )
+            user_logged = authenticate(username=user.username, password=data["password"])
+            login(request, user_logged)
             messages.add_message(request, messages.SUCCESS, "SUCCESS")
         except Exception as e:
             messages.add_message(request, messages.ERROR, "ERROR")
