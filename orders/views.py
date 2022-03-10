@@ -4,7 +4,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.views import View
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework import generics
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -74,3 +75,15 @@ class OrderHistory(PermissionRequiredMixin, View):
             "orders": orders,
         }
         return render(request, "orders/full_history.html", context)
+
+
+class OrderApiTest(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [BasicAuthentication]
+    serializer_class = OrderItemsSerializer
+    queryset = OrderItem.objects.all()
+
+    def get_queryset(self):
+        id = self.kwargs.get("id")
+        order = Order.objects.get(id=id)
+        return order.order_items.all()
