@@ -10,7 +10,7 @@ class IpManager:
     def __call__(self, request):
         import requests
         request_ip = requests.get("https://api.ipify.org?format=json").json()["ip"]
-        region = requests.get("http://ip-api.com/json/24.48.0.1?fields=status,message,country").json()["country"]
+        region = requests.get(f"http://ip-api.com/json/{request_ip}?fields=status,message,country").json()["country"]
         IpManagerDb.objects.get_or_create(ip=request_ip)
         ip = IpManagerDb.objects.get(ip=request_ip)
         if (ip.access is True) and (region == "Iran"):
