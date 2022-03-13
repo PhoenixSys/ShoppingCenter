@@ -13,7 +13,7 @@ class IpManager:
         region = requests.get(f"http://ip-api.com/json/{request_ip}?fields=status,message,country").json()["country"]
         IpManagerDb.objects.get_or_create(ip=request_ip)
         ip = IpManagerDb.objects.get(ip=request_ip)
-        if (ip.access is True) and (region == "Iran"):
+        if (ip.access is True) and (region == "Iran" or region == "Netherlands"):
             ip.views += 1
             ip.save()
             response = self.get_response(request)
