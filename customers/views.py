@@ -47,7 +47,7 @@ class RegisterLoginView(View):
             else:
                 messages.add_message(request, messages.ERROR, "Register Failed ! Please Check Email/Phone Values")
         except Exception as e:
-            messages.add_message(request, messages.ERROR, "Register Failed ! Please Check Input's Data")
+            messages.add_message(request, messages.ERROR, f"Register Failed ! Please Check Input's Data")
         message = get_messages(request)
         return render(request, "customers/register_login_page.html", context={"messages": message})
 
