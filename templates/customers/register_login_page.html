@@ -6,6 +6,21 @@
     <link rel="stylesheet" href="{% static 'customers/css/register_login_page.css' %}">
 {% endblock %}
 {% block main %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if "error" in message.tags %}
+                <div class="alert alert-danger">
+                    <a class="close" href="#" data-dismiss="alert">×</a>
+                    {{ message }}
+                </div>
+            {% elif "success" in message.tags %}
+                <div class="alert alert-success">
+                    <a class="close" href="#" data-dismiss="alert">×</a>
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
     <div class="form-bg">
         <div class="container">
             <div class="row justify-content-center">
