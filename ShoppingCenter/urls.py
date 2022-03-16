@@ -30,7 +30,6 @@ urlpatterns = i18n_patterns(
     path('about_us/', AboutUs.as_view(), name="about"),
     path('orders/full_history/', OrderHistory.as_view(), name="order_history"),
     path('costumers/', include('customers.urls')),
-    path('login/', LoginView.as_view(), name="login"),
     # api and rosseta
     # path('api/v1/product/', include('products.urls')),
     path('api/v1/order/', include('orders.urls')),
