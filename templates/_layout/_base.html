@@ -293,7 +293,8 @@
         var clicked;
         $("#search_btn").click(function () {
             var query = $("#search_input").val()
-            window.location.replace(`http://127.0.0.1:8000/search/${query}`);
+            var search_url = "{% url "home"  %}search"
+            window.location.replace(`${search_url}/${query}`);
         });
     </script>
 {% endblock %}
