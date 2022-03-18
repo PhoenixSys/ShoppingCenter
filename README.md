@@ -2,7 +2,23 @@
 
 ## Powered By Django
 
-### Techs : Python , Django , DRF , Django ORM , SQLite , Docker , DTL , JS , HTML , CSS , ... .
+## Supported Languages :
+
+- En
+- Fa
+
+## Techs :
+
+- Python .
+- Django .
+- DRF .
+- Django ORM .
+- SQLite .
+- Docker .
+- DTL .
+- JS .
+- HTML .
+- CSS .
 
 ### Step1 :
 
