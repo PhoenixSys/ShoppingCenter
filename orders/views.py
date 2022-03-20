@@ -61,17 +61,17 @@ class OrderApiView(APIView):
                                      data=json.dumps({"order_id": order.id, "amount": int(order.get_total_cost) * 28000,
                                                       "name": f"{costumer.user.phone}",
                                                       "phone": f"{costumer.user.phone}",
-                                                      "mail": f"{costumer.user.email}", "desc": "توضیحات پرداخت کننده",
+                                                      "mail": f"{costumer.user.email}",
+                                                      "desc": f"From Costumer : {costumer.id}",
                                                       "callback": "http://185.235.41.190:8000/"})
                                      ).json()
-                print(resp)
                 if "link" in resp.keys():
                     Transactions.objects.create(order=order, transactionId=resp["id"], transactionLink=resp["link"])
                     order.status = 3
                     order.save()
                     send_mail(
                         'Congratulations !',
-                        f'Dear Admin , You Received A New Order From Customer : {costumer.user.username} !',
+                        f'Dear Admin , You Received A New Order From Customer : {costumer.user.username} ! With Transaction Id : {resp["id"]}',
                         from_email=None,
                         recipient_list=["mobinatashi2@gmail.com"],
                         fail_silently=False,
