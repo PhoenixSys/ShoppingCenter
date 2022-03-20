@@ -26,7 +26,7 @@ class Order(BaseModel):
         verbose_name_plural = _("Orders")
 
     def __str__(self):
-        return f'Order {self.id} status :{self.get_status_display} '
+        return f'Order {self.id} status :{self.get_status_display()} '
 
     @property
     def get_total_cost(self):
@@ -57,4 +57,4 @@ class Transactions(BaseModel):
     status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name=_('Status'))
 
     def __str__(self):
-        return f"{self.order} | {self.transactionId} | {self.get_status_display}"
+        return f"{self.order} | {self.transactionId} | {self.get_status_display()}"

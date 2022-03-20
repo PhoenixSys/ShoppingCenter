@@ -14,7 +14,7 @@ import json
 import requests
 
 from customers.models import Costumers
-from orders.models import Order, OrderItem
+from orders.models import Order, OrderItem, Transactions
 from orders.serializer import OrderSerializer, OrderItemsSerializer, ItemSerializer
 from products.models import Products, Categories
 
@@ -66,6 +66,7 @@ class OrderApiView(APIView):
                                      ).json()
                 print(resp)
                 if "link" in resp.keys():
+                    Transactions.objects.create(order=order, transactionId=resp["id"], transactionLink=resp["link"])
                     order.status = 3
                     order.save()
                     send_mail(
