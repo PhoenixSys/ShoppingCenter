@@ -1,4 +1,4 @@
-from core.models import User
+from core.models import User, IpManagerDb
 from products.models import Categories
 
 
@@ -8,6 +8,12 @@ def push_categories(request):
         "categories": categories
     }
     return context
+
+
+def site_views(request):
+    views = IpManagerDb.objects.count()
+    print(views)
+    return {"views": views}
 
 
 def check_login(request):

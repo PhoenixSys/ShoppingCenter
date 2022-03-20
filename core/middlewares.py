@@ -9,18 +9,22 @@ class IpManager:
 
     def __call__(self, request):
         import requests
-        request_ip = requests.get("https://api.ipify.org?format=json").json()["ip"]
-        region = requests.get(f"http://ip-api.com/json/{request_ip}?fields=status,message,country").json()["country"]
-        IpManagerDb.objects.get_or_create(ip=request_ip)
-        ip = IpManagerDb.objects.get(ip=request_ip)
-        if (ip.access is True) and (region == "Iran" or region == "Netherlands"):
-            ip.views += 1
-            ip.save()
-            response = self.get_response(request)
-            return response
-        else:
-            context = {
-                "ip": request_ip,
-                "region": region
-            }
-            return render(request, "_layout/access_denied.html", context=context)
+        try:
+            request_ip = requests.get("https://api.ipify.org?format=json").json()["ip"]
+            region = requests.get(f"http://ip-api.com/json/{request_ip}?fields=status,message,country").json()[
+                "country"]
+            IpManagerDb.objects.get_or_create(ip=request_ip)
+            ip = IpManagerDb.objects.get(ip=request_ip)
+            if (ip.access is True) and (region == "Iran" or region == "Netherlands"):
+                ip.views += 1
+                ip.save()
+                response = self.get_response(request)
+                return response
+            else:
+                context = {
+                    "ip": request_ip,
+                    "region": region
+                }
+                return render(request, "_layout/access_denied.html", context=context)
+        except:
+            return render(request, "_layout/error_page.html")

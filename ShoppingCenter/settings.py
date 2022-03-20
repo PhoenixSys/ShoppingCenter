@@ -81,6 +81,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 "core.context_processors.push_categories",
                 "core.context_processors.check_login",
+                "core.context_processors.site_views",
 
             ],
         },
