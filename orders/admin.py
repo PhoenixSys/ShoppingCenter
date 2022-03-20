@@ -7,6 +7,7 @@ from orders.models import OrderItem, Order, Transactions
 class CustomAdminOrder(admin.ModelAdmin):
     search_fields = ["id", "costumer", "status"]
     list_display = ["id", "costumer", "status", "is_paid"]
+    list_filter = ["is_paid", 'status']
 
 
 class CustomAdminOrderItem(admin.ModelAdmin):
@@ -15,8 +16,9 @@ class CustomAdminOrderItem(admin.ModelAdmin):
 
 
 class CustomAdminTransactions(admin.ModelAdmin):
-    search_fields = ["id", "order", "transactionId", "transactionLink"]
-    list_display = ["id", "order", "transactionId", "transactionLink"]
+    search_fields = ["id", "order", "transactionId", "transactionLink", "status"]
+    list_display = ["id", "order", "transactionId", "transactionLink", "status"]
+    list_filter = ['status']
 
 
 admin.site.register(Order, CustomAdminOrder)

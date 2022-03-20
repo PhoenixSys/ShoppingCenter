@@ -56,5 +56,9 @@ class Transactions(BaseModel):
     transactionLink = models.CharField(max_length=500, verbose_name=_("TransactionLink"))
     status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.WAITING, verbose_name=_('Status'))
 
+    class Meta:
+        verbose_name = _("Transaction")
+        verbose_name_plural = _("Transactions")
+
     def __str__(self):
         return f"{self.order} | {self.transactionId} | {self.get_status_display()}"
