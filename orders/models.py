@@ -54,7 +54,7 @@ class Transactions(BaseModel):
     order = models.ForeignKey(Order, on_delete=models.RESTRICT, verbose_name=_("Order"))
     transactionId = models.CharField(max_length=256, verbose_name=_("TransactionId"))
     transactionLink = models.CharField(max_length=500, verbose_name=_("TransactionLink"))
-    status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name=_('Status'))
+    status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.WAITING, verbose_name=_('Status'))
 
     def __str__(self):
         return f"{self.order} | {self.transactionId} | {self.get_status_display()}"
