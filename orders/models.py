@@ -10,6 +10,7 @@ ORDER_STATUS = Choices(
     (0, 'CANCEL', 'Cancel'),
     (1, 'UNPAID', 'Unpaid'),
     (2, 'PAID', 'Paid'),
+    (3, 'WAITING', 'Waiting'),
 )
 
 
@@ -25,7 +26,7 @@ class Order(BaseModel):
         verbose_name_plural = _("Orders")
 
     def __str__(self):
-        return f'Order {self.id} status :{self.status} '
+        return f'Order {self.id} status :{self.get_status_display} '
 
     @property
     def get_total_cost(self):
@@ -47,3 +48,13 @@ class OrderItem(BaseModel):
     @property
     def get_cost(self):
         return (self.item.final_price()) * self.quantity
+
+
+class Transactions(BaseModel):
+    order = models.ForeignKey(Order, on_delete=models.RESTRICT, verbose_name=_("Order"))
+    transactionId = models.CharField(max_length=256, verbose_name=_("TransactionId"))
+    transactionLink = models.CharField(max_length=500, verbose_name=_("TransactionLink"))
+    status = models.IntegerField(choices=ORDER_STATUS, default=ORDER_STATUS.UNPAID, verbose_name=_('Status'))
+
+    def __str__(self):
+        return f"{self.order} | {self.transactionId} | {self.get_status_display}"

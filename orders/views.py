@@ -66,7 +66,7 @@ class OrderApiView(APIView):
                                      ).json()
                 print(resp)
                 if "link" in resp.keys():
-                    order.status = 2
+                    order.status = 3
                     order.save()
                     send_mail(
                         'Congratulations !',

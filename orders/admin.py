@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from orders.models import OrderItem, Order
+from orders.models import OrderItem, Order, Transactions
 
 
 class CustomAdminOrder(admin.ModelAdmin):
@@ -14,5 +14,11 @@ class CustomAdminOrderItem(admin.ModelAdmin):
     list_display = ["id", "order", "item", "quantity"]
 
 
+class CustomAdminTransactions(admin.ModelAdmin):
+    search_fields = ["id", "order", "transactionId", "transactionLink"]
+    list_display = ["id", "order", "transactionId", "transactionLink"]
+
+
 admin.site.register(Order, CustomAdminOrder)
 admin.site.register(OrderItem, CustomAdminOrderItem)
+admin.site.register(Transactions, CustomAdminTransactions)
