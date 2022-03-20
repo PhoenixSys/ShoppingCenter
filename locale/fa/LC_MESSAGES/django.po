@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-26 15:39+0000\n"
-"PO-Revision-Date: 2022-02-28 11:15+0000\n"
+"POT-Creation-Date: 2022-03-20 11:23+0000\n"
+"PO-Revision-Date: 2022-03-20 11:28+0000\n"
 "Last-Translator: Mobin Atashi <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,12 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: contact/apps.py:8
+#: contact/apps.py:10
 msgid "contact"
 msgstr "تماس با ما"
 
+#: contact/models.py:9 products/models.py:9
+#: templates/customers/profile.html:28 templates/customers/profile.html:35
+msgid "Name"
+msgstr "نام"
+
+#: contact/models.py:10
+msgid "Email"
+msgstr "ایمیل"
+
+#: contact/models.py:11
+msgid "Text"
+msgstr "متن"
+
 #: contact/models.py:14 contact/models.py:15
-#| msgid "Contact Us"
 msgid "ContactUs"
 msgstr "تماس با ما"
 
@@ -56,19 +68,31 @@ msgstr "موجودیت"
 msgid "This is active status"
 msgstr ""
 
+#: core/models.py:65
+msgid "Ip"
+msgstr "آی پی"
+
+#: core/models.py:66
+msgid "Views"
+msgstr ""
+
+#: core/models.py:67
+msgid "Access"
+msgstr ""
+
 #: customers/apps.py:8
 msgid "customers"
 msgstr "مشتری ها"
 
-#: customers/models.py:9 customers/models.py:28
+#: customers/models.py:9 customers/models.py:28 orders/models.py:18
 msgid "Costumer"
 msgstr "مشتری"
 
-#: customers/models.py:10 templates/customers/profile.html:90
+#: customers/models.py:10 templates/customers/profile.html:91
 msgid "State"
 msgstr "استان"
 
-#: customers/models.py:11 templates/customers/profile.html:96
+#: customers/models.py:11 templates/customers/profile.html:97
 msgid "City"
 msgstr "شهر"
 
@@ -84,7 +108,7 @@ msgstr "آدرس"
 msgid "Addresses"
 msgstr "آدرس ها"
 
-#: customers/models.py:29 orders/models.py:17
+#: customers/models.py:29
 msgid "Costumers"
 msgstr "مشتری ها"
 
@@ -92,45 +116,61 @@ msgstr "مشتری ها"
 msgid "orders"
 msgstr "سفارش ها"
 
-#: orders/models.py:18
+#: orders/models.py:19
+#| msgid "Address"
+msgid "address"
+msgstr "آدرس"
+
+#: orders/models.py:20 orders/models.py:57
 msgid "Status"
 msgstr "وضعیت"
 
-#: orders/models.py:19
+#: orders/models.py:21
 msgid "Paid"
 msgstr "پرداخت شده "
 
-#: orders/models.py:23 orders/models.py:35
-#: templates/customers/profile.html:123
+#: orders/models.py:25 orders/models.py:37 orders/models.py:54
+#: templates/customers/profile.html:124
 msgid "Order"
 msgstr "سفارش"
 
-#: orders/models.py:24
+#: orders/models.py:26
 msgid "Orders"
 msgstr "سفارش ها"
 
-#: orders/models.py:36
+#: orders/models.py:38
 msgid "Item"
 msgstr "آیتم"
 
-#: orders/models.py:40
+#: orders/models.py:42
 msgid "OrderItem"
 msgstr "آیتم داخل سفارش"
 
-#: orders/models.py:41
+#: orders/models.py:43
 msgid "OrderItems"
 msgstr "آیتم های داخل سفارش"
+
+#: orders/models.py:55
+msgid "TransactionId"
+msgstr "شناسه تراکنش"
+
+#: orders/models.py:56
+msgid "TransactionLink"
+msgstr "لینک تراکنش"
+
+#: orders/models.py:60
+msgid "Transaction"
+msgstr "تراکنش"
+
+#: orders/models.py:61
+msgid "Transactions"
+msgstr "تراکنش ها"
 
 #: products/apps.py:8
 msgid "products"
 msgstr "محصولات"
 
-#: products/models.py:9 templates/customers/profile.html:27
-#: templates/customers/profile.html:34
-msgid "Name"
-msgstr "نام"
-
-#: products/models.py:10 products/models.py:40
+#: products/models.py:10 products/models.py:41
 msgid "Category"
 msgstr "دسته بندی"
 
@@ -138,7 +178,7 @@ msgstr "دسته بندی"
 msgid "Price"
 msgstr "قیمت"
 
-#: products/models.py:13 products/models.py:62
+#: products/models.py:13 products/models.py:63
 msgid "Discount"
 msgstr "تخفیف"
 
@@ -146,113 +186,141 @@ msgstr "تخفیف"
 msgid "Image"
 msgstr "عکس"
 
-#: products/models.py:15
+#: products/models.py:16
 msgid "Description"
 msgstr "توضیحات"
 
-#: products/models.py:18
+#: products/models.py:19
 msgid "Product"
 msgstr "محصول"
 
-#: products/models.py:19
+#: products/models.py:20
 msgid "Products"
 msgstr "محصولات"
 
-#: products/models.py:31 products/models.py:47
+#: products/models.py:32 products/models.py:48
 msgid "Type"
 msgstr "نوع"
 
-#: products/models.py:34
+#: products/models.py:35
 msgid "Parent"
 msgstr "سر دسته"
 
-#: products/models.py:41 templates/_layout/_base.html:51
+#: products/models.py:42 templates/_layout/_base.html:50
 msgid "Categories"
 msgstr "دسته بندی ها"
 
-#: products/models.py:48
+#: products/models.py:49
 msgid "Value"
 msgstr "میزان"
 
-#: products/models.py:49
+#: products/models.py:50
 msgid "Max_Price"
 msgstr "ماگزیمم قیمت"
 
-#: products/models.py:63
+#: products/models.py:64
 msgid "Discounts"
 msgstr "تخفیف"
 
-#: templates/_layout/_base.html:40
+#: templates/_layout/_base.html:7 templates/_layout/_base.html:41
 msgid "Ariana"
 msgstr "آریانا"
 
-#: templates/_layout/_base.html:44
+#: templates/_layout/_base.html:45 templates/_layout/cards.html:4
 msgid "Home"
 msgstr "خانه"
 
-#: templates/_layout/_base.html:47
-msgid "About Us"
-msgstr "درباره ما"
+#: templates/_layout/_base.html:53 templates/_layout/have_discount.html:4
+msgid "Products Have Discount"
+msgstr "محصولات دارای تخفیف"
 
-#: templates/_layout/_base.html:74
+#: templates/_layout/_base.html:76 templates/customers/profile.html:4
 msgid "Profile"
 msgstr "پروفایل"
 
-#: templates/_layout/_base.html:77
+#: templates/_layout/_base.html:79 templates/contact/ContactUs.html:3
 msgid "Contact Us"
 msgstr "تماس با ما"
 
-#: templates/_layout/_base.html:84
+#: templates/_layout/_base.html:82
+msgid "About Us"
+msgstr "درباره ما"
+
+#: templates/_layout/_base.html:88
 msgid "Login/Register"
 msgstr "ورود/ثبت نام"
 
-#: templates/_layout/_base.html:92
+#: templates/_layout/_base.html:96
 msgid "Back To Home"
 msgstr "بازگشت به خانه"
 
-#: templates/_layout/_base.html:96
+#: templates/_layout/_base.html:100
 msgid "Logout"
 msgstr "خروج"
 
-#: templates/_layout/_base.html:111
+#: templates/_layout/_base.html:116
 msgid "Menu"
 msgstr "منو"
 
-#: templates/_layout/_base.html:123 templates/_layout/_base.html:147
+#: templates/_layout/_base.html:190
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: templates/_layout/_base.html:131
-msgid "Clear Cart"
-msgstr "حذف سبد خرید"
-
-#: templates/_layout/_base.html:160 templates/admin/submit_line.html:23
+#: templates/_layout/_base.html:203 templates/admin/submit_line.html:23
 msgid "Close"
 msgstr "بستن"
 
-#: templates/_layout/_base.html:161
+#: templates/_layout/_base.html:204
 msgid "Order now"
 msgstr "ثبت نهایی"
 
-#: templates/_layout/cards.html:26
+#: templates/_layout/cards.html:72 templates/_layout/cards.html:141
+#: templates/_layout/categories.html:29
+#: templates/_layout/have_discount.html:29
+#: templates/_layout/search_page.html:29
 msgid "Likes"
 msgstr "لایک ها"
 
-#: templates/_layout/cards.html:44
+#: templates/_layout/cards.html:90 templates/_layout/cards.html:159
+#: templates/_layout/categories.html:47
+#: templates/_layout/have_discount.html:47
+#: templates/_layout/search_page.html:47
 msgid "Available"
 msgstr "موجود"
 
-#: templates/_layout/cards.html:48 templates/_layout/cards.html:60
+#: templates/_layout/cards.html:94 templates/_layout/cards.html:106
+#: templates/_layout/cards.html:163 templates/_layout/cards.html:175
+#: templates/_layout/categories.html:51 templates/_layout/categories.html:63
+#: templates/_layout/details.html:5 templates/_layout/have_discount.html:51
+#: templates/_layout/have_discount.html:63
+#: templates/_layout/search_page.html:51 templates/_layout/search_page.html:63
 msgid "Details"
 msgstr "جزییات"
 
-#: templates/_layout/cards.html:52
+#: templates/_layout/cards.html:98 templates/_layout/cards.html:167
+#: templates/_layout/categories.html:55
+#: templates/_layout/have_discount.html:55
+#: templates/_layout/search_page.html:55
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: templates/_layout/cards.html:56 templates/_layout/cards.html:64
+#: templates/_layout/cards.html:102 templates/_layout/cards.html:110
+#: templates/_layout/cards.html:171 templates/_layout/cards.html:179
+#: templates/_layout/categories.html:59 templates/_layout/categories.html:67
+#: templates/_layout/have_discount.html:59
+#: templates/_layout/have_discount.html:67
+#: templates/_layout/search_page.html:59 templates/_layout/search_page.html:67
 msgid "Unavailable"
 msgstr "ناموجود"
+
+#: templates/_layout/categories.html:4
+#| msgid "Category"
+msgid "By Category"
+msgstr "با دسته بندی"
+
+#: templates/_layout/search_page.html:4 templates/admin/search_form.html:16
+msgid "Search"
+msgstr "جست و جو"
 
 #: templates/admin/actions.html:14
 msgid "Run the selected action"
@@ -260,7 +328,7 @@ msgstr ""
 
 #: templates/admin/actions.html:15
 msgid "Go"
-msgstr ""
+msgstr "برو"
 
 #: templates/admin/actions.html:25
 msgid "Click here to select the objects across all pages"
@@ -340,7 +408,7 @@ msgstr ""
 
 #: templates/admin/change_list.html:107
 msgid "Filter"
-msgstr ""
+msgstr "فیلتر"
 
 #: templates/admin/change_list_results.html:18
 msgid "Remove from sorting"
@@ -460,11 +528,11 @@ msgstr ""
 
 #: templates/admin/index.html:230
 msgid "Recent actions"
-msgstr ""
+msgstr "فعالیت های اخیر"
 
 #: templates/admin/index.html:231
 msgid "My actions"
-msgstr ""
+msgstr "فعالیت های من "
 
 #: templates/admin/index.html:251
 msgid "Unknown content"
@@ -483,11 +551,11 @@ msgstr ""
 
 #: templates/admin/login.html:61
 msgid "Forgotten your password or username?"
-msgstr ""
+msgstr "پسورد خود را فراموش کزده اید ؟"
 
 #: templates/admin/object_history.html:45
 msgid "User"
-msgstr ""
+msgstr "کاربر"
 
 #: templates/admin/object_history.html:46
 msgid "Action"
@@ -510,10 +578,6 @@ msgstr "مشاهده همه"
 #: templates/admin/pagination.html:47 templates/admin/submit_line.html:7
 msgid "Save"
 msgstr "ذخیره"
-
-#: templates/admin/search_form.html:16
-msgid "Search"
-msgstr "جست و جو"
 
 #: templates/admin/search_form.html:22
 #, python-format
@@ -546,59 +610,77 @@ msgstr "داشبورد"
 
 #: templates/admin/submit_line.html:11
 msgid "Save as new"
-msgstr ""
+msgstr "ذخیره به عنوان مورد جدید"
 
 #: templates/admin/submit_line.html:15
 msgid "Save and add another"
-msgstr ""
+msgstr "ذخیره و افزودن دیگری"
 
 #: templates/admin/submit_line.html:19
 msgid "Save and continue editing"
-msgstr ""
+msgstr "ذخیره و ادامه ویرایش"
 
 #: templates/admin/submit_line.html:19
 msgid "Save and view"
-msgstr ""
+msgstr "ذخیره و مشاهده"
 
-#: templates/customers/profile.html:23
+#: templates/contact/AboutUs.html:4
+#, fuzzy
+#| msgid "About Us"
+msgid "About US"
+msgstr "درباره ما"
+
+#: templates/customers/profile.html:24
 msgid "Profile Settings"
 msgstr "تنظیمات پروفایل"
 
-#: templates/customers/profile.html:42 templates/customers/profile.html:50
+#: templates/customers/profile.html:43 templates/customers/profile.html:51
 msgid "Surname"
 msgstr "نام خانوادگی"
 
-#: templates/customers/profile.html:61
+#: templates/customers/profile.html:62
 msgid "Mobile Number"
 msgstr "شماره موبایل"
 
-#: templates/customers/profile.html:68
+#: templates/customers/profile.html:69
 msgid "Default Address"
 msgstr "آدرس پیشفرض"
 
-#: templates/customers/profile.html:83
+#: templates/customers/profile.html:84
 msgid "Postcode"
 msgstr "کد پستی"
 
-#: templates/customers/profile.html:105
+#: templates/customers/profile.html:106
 msgid "Save Profile"
 msgstr "ذخیره پروفایل"
 
-#: templates/customers/profile.html:108
+#: templates/customers/profile.html:109
 msgid "Discard Changes"
 msgstr "صرف نظر از تغییرات"
 
-#: templates/customers/profile.html:117
+#: templates/customers/profile.html:118
 msgid "Recently Orders"
 msgstr "سفارش های اخیر"
 
-#: templates/customers/profile.html:120
+#: templates/customers/profile.html:121 templates/orders/full_history.html:4
 msgid "Full History"
 msgstr "تاریخچه کامل"
 
-#: templates/customers/profile.html:124
+#: templates/customers/profile.html:125
 msgid "Cost"
 msgstr "هزینه"
+
+#: templates/customers/register_login_page.html:4
+#| msgid "Login/Register"
+msgid "Register"
+msgstr "ثبت نام"
+
+#: templates/registration/login.html:4
+msgid "Login"
+msgstr "ورود"
+
+#~ msgid "Clear Cart"
+#~ msgstr "حذف سبد خرید"
 
 #~ msgid "First Name"
 #~ msgstr "نام"
@@ -608,6 +690,3 @@ msgstr "هزینه"
 
 #~ msgid "Phone"
 #~ msgstr "تلفن"
-
-#~ msgid "Email"
-#~ msgstr "ایمیل"
