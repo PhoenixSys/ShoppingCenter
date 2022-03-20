@@ -260,10 +260,13 @@
                 contentType: "application/json",
                 success: function (msg) {
                     alert("successful !")
+                    if (msg.startsWith("https")) {
+                        window.location.replace(msg);
+                    }
                     $(".clear-cart").click()
                 },
                 error: function (msg) {
-                    alert("At First Please Login/Select A valid Default Address :)");
+                    alert(`Error : ${msg}`);
                 }
             });
         });

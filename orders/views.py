@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views import View
@@ -9,6 +9,9 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import json
+
+import requests
 
 from customers.models import Costumers
 from orders.models import Order, OrderItem
@@ -50,18 +53,35 @@ class OrderApiView(APIView):
                         order_f.save()
                     else:
                         raise ProcessLookupError
-                order.status = 2
                 order.save()
-                send_mail(
-                    'Congratulations !',
-                    f'Dear Admin , You Received A New Order From Customer : {costumer.user.username} !',
-                    from_email=None,
-                    recipient_list=["mobinatashi2@gmail.com"],
-                    fail_silently=False,
-                )
-                return Response({"result": "SUCCESS"})
+                resp = requests.post("https://api.idpay.ir/v1.1/payment",
+                                     headers={'Content-Type': 'application/json',
+                                              "X-API-KEY": 'c377d98e-0c65-4696-9d7f-db122b15b5e0',
+                                              'X-SANDBOX': "1"},
+                                     data=json.dumps({"order_id": order.id, "amount": int(order.get_total_cost) * 28000,
+                                                      "name": f"{costumer.user.phone}",
+                                                      "phone": f"{costumer.user.phone}",
+                                                      "mail": f"{costumer.user.email}", "desc": "توضیحات پرداخت کننده",
+                                                      "callback": "http://185.235.41.190:8000/"})
+                                     ).json()
+                print(resp)
+                if "link" in resp.keys():
+                    order.status = 2
+                    order.save()
+                    send_mail(
+                        'Congratulations !',
+                        f'Dear Admin , You Received A New Order From Customer : {costumer.user.username} !',
+                        from_email=None,
+                        recipient_list=["mobinatashi2@gmail.com"],
+                        fail_silently=False,
+                    )
+                    return Response(resp["link"])
+                else:
+                    order.status = 0
+                    order.save()
+                    return Response({"Error": "Transaction Failed !"}, status=401)
         else:
-            return Response({"error": "Please Select A valid Default Address !"}, status=401)
+            return Response({"Error": "At First Please Login/Select A valid Default Address :)"}, status=401)
 
 
 class OrderHistory(PermissionRequiredMixin, View):
