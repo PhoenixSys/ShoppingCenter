@@ -31,6 +31,6 @@ class BackGroundTasks(APIView):
                         trans_order.save()
                         transaction.save()
                         counter += 1
-            return Response(f"{counter} Transaction Accepted")
+            return Response(f"{counter} Transaction Accepted !")
         else:
             return Response("Access Denied !")
