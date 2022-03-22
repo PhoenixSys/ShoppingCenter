@@ -28,6 +28,7 @@ class BackGroundTasks(APIView):
                         trans_order = Order.objects.get(id=transaction.order.id)
                         transaction.status = 2
                         trans_order.status = 2
+                        trans_order.is_paid = True
                         trans_order.save()
                         transaction.save()
                         counter += 1
