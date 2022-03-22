@@ -34,6 +34,8 @@ urlpatterns = i18n_patterns(
     # path('api/v1/product/', include('products.urls')),
     path('api/v1/order/', include('orders.urls')),
     path('rosseta/', include('rosetta.urls')),
+    # start/end tasks
+    path("tasks/", include("core.urls")),
     # account
     path('accounts/', include('django.contrib.auth.urls')),
     path('api-auth/', include('rest_framework.urls')),
