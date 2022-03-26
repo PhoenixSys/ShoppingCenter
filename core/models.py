@@ -70,6 +70,10 @@ class IpManagerDb(models.Model):
     views = models.IntegerField(default=0, verbose_name=_("Views"))
     access = models.BooleanField(default=True, verbose_name=_("Access"))
 
+    class Meta:
+        verbose_name = _("IpManagerDb")
+        verbose_name_plural = _("IpsManagerDb")
+
 
 class User(AbstractUser):
     phone = models.CharField(max_length=11, unique=True)
