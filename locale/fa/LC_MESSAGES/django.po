@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-20 11:23+0000\n"
-"PO-Revision-Date: 2022-03-20 11:28+0000\n"
+"POT-Creation-Date: 2022-03-26 06:40+0000\n"
+"PO-Revision-Date: 2022-03-26 06:43+0000\n"
 "Last-Translator: Mobin Atashi <mobinatashi2@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -73,12 +73,38 @@ msgid "Ip"
 msgstr "آی پی"
 
 #: core/models.py:66
-msgid "Views"
-msgstr ""
+msgid "Country"
+msgstr "کشور"
 
-#: core/models.py:67
+#: core/models.py:67 customers/models.py:11
+#: templates/customers/profile.html:97
+msgid "City"
+msgstr "شهر"
+
+#: core/models.py:68
+msgid "Lat"
+msgstr "عرض جغرافیایی"
+
+#: core/models.py:69
+#| msgid "Login"
+msgid "Lon"
+msgstr "طول جغرافیایی"
+
+#: core/models.py:70
+msgid "Views"
+msgstr "بازدید ها"
+
+#: core/models.py:71
 msgid "Access"
-msgstr ""
+msgstr "دسترسی"
+
+#: core/models.py:74
+msgid "IpManagerDb"
+msgstr "مدیریت آی پی"
+
+#: core/models.py:75
+msgid "IpsManagerDb"
+msgstr "مدیریت آی پی ها"
 
 #: customers/apps.py:8
 msgid "customers"
@@ -91,10 +117,6 @@ msgstr "مشتری"
 #: customers/models.py:10 templates/customers/profile.html:91
 msgid "State"
 msgstr "استان"
-
-#: customers/models.py:11 templates/customers/profile.html:97
-msgid "City"
-msgstr "شهر"
 
 #: customers/models.py:12
 msgid "PostalCode"
@@ -117,7 +139,6 @@ msgid "orders"
 msgstr "سفارش ها"
 
 #: orders/models.py:19
-#| msgid "Address"
 msgid "address"
 msgstr "آدرس"
 
@@ -314,7 +335,6 @@ msgid "Unavailable"
 msgstr "ناموجود"
 
 #: templates/_layout/categories.html:4
-#| msgid "Category"
 msgid "By Category"
 msgstr "با دسته بندی"
 
@@ -671,7 +691,6 @@ msgid "Cost"
 msgstr "هزینه"
 
 #: templates/customers/register_login_page.html:4
-#| msgid "Login/Register"
 msgid "Register"
 msgstr "ثبت نام"
 
