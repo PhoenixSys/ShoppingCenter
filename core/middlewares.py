@@ -21,7 +21,7 @@ class IpManager:
             if not proxy:
                 IpManagerDb.objects.get_or_create(ip=request_ip, country=country, city=city, lat=lat, lon=lon)
                 ip = IpManagerDb.objects.get(ip=request_ip)
-                if (ip.access is True) and (ip.country == "Iran" or ip.country == "Netherlands"):
+                if ip.access is True:
                     ip.views += 1
                     ip.save()
                     response = self.get_response(request)
