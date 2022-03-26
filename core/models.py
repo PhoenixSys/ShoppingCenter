@@ -63,6 +63,10 @@ class BaseUserManager(UserManager):
 
 class IpManagerDb(models.Model):
     ip = models.CharField(max_length=16, unique=True, verbose_name=_("Ip"))
+    country = models.CharField(max_length=32, unique=False, verbose_name=_("Country"))
+    city = models.CharField(max_length=32, unique=False, verbose_name=_("City"))
+    lat = models.CharField(max_length=32, unique=False, verbose_name=_("Lat"))
+    lon = models.CharField(max_length=32, unique=False, verbose_name=_("Lon"))
     views = models.IntegerField(default=0, verbose_name=_("Views"))
     access = models.BooleanField(default=True, verbose_name=_("Access"))
 

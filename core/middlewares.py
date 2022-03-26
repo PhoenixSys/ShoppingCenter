@@ -11,11 +11,15 @@ class IpManager:
         import requests
         try:
             request_ip = requests.get("https://api.ipify.org?format=json").json()["ip"]
-            region = requests.get(f"http://ip-api.com/json/{request_ip}?fields=status,message,country").json()[
-                "country"]
-            IpManagerDb.objects.get_or_create(ip=request_ip)
+            resp = requests.get(
+                f"http://ip-api.com/json/{request_ip}?fields=status,message,country,city,lat,lon").json()
+            country = resp["country"]
+            city = resp["city"]
+            lat = resp["lat"]
+            lon = resp["lon"]
+            IpManagerDb.objects.get_or_create(ip=request_ip, country=country, city=city, lat=lat, lon=lon)
             ip = IpManagerDb.objects.get(ip=request_ip)
-            if (ip.access is True) and (region == "Iran" or region == "Netherlands"):
+            if (ip.access is True) and (ip.country == "Iran" or ip.country == "Netherlands"):
                 ip.views += 1
                 ip.save()
                 response = self.get_response(request)
@@ -23,7 +27,7 @@ class IpManager:
             else:
                 context = {
                     "ip": request_ip,
-                    "region": region
+                    "region": country
                 }
                 return render(request, "_layout/access_denied.html", context=context)
         except:

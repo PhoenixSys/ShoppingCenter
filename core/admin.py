@@ -18,8 +18,8 @@ UserAdmin.add_fieldsets = (
 
 
 class CustomAdminIpManager(admin.ModelAdmin):
-    search_fields = ["id", "ip", "views", "access"]
-    list_display = ["id", "ip", "views", "access"]
+    search_fields = ["id", "ip", "country", "city", "views", "access"]
+    list_display = ["id", "ip", "country", "city", "lat", "lon", "views", "access"]
 
 
 admin.site.register(User, UserAdmin)

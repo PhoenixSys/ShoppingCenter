@@ -43,7 +43,7 @@ class RegisterLoginView(View):
                 )
                 user_logged = authenticate(username=user.username, password=data["password"])
                 login(request, user_logged)
-                messages.add_message(request, messages.SUCCESS, "You Are Successfully Registered !")
+                return redirect("home")
             else:
                 messages.add_message(request, messages.ERROR, "Register Failed ! Please Check Email/Phone Values")
         except Exception as e:
