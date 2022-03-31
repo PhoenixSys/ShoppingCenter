@@ -23,15 +23,16 @@ class BackGroundTasks(APIView):
                                              {"order_id": transaction.order.id, "id": f"{transaction.transactionId}"})
                                          )
                     verification = resp.json()
-                    verification_status = int(verification["status"])
-                    if (verification_status == 100) or (verification_status == 101) or (verification_status == 1):
-                        trans_order = Order.objects.get(id=transaction.order.id)
-                        transaction.status = 2
-                        trans_order.status = 2
-                        trans_order.is_paid = True
-                        trans_order.save()
-                        transaction.save()
-                        counter += 1
+                    if "status" in verification.keys():
+                        verification_status = int(verification["status"])
+                        if (verification_status == 100) or (verification_status == 101) or (verification_status == 1):
+                            trans_order = Order.objects.get(id=transaction.order.id)
+                            transaction.status = 2
+                            trans_order.status = 2
+                            trans_order.is_paid = True
+                            trans_order.save()
+                            transaction.save()
+                            counter += 1
             return Response(f"{counter} Transaction Accepted !")
         else:
             return Response("Access Denied !")
