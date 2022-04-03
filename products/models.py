@@ -1,8 +1,8 @@
 # Create your models here.
-from django.core.validators import MaxLengthValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 from core.models import BaseModel
+from tinymce import models as tinymce_models
 
 
 class Products(BaseModel):
@@ -13,7 +13,8 @@ class Products(BaseModel):
                                  verbose_name=_("Discount"))
     image = models.ImageField(upload_to="uploads/", verbose_name=_("Image"),
                               help_text="Best format is .png or .jpg")
-    description = models.TextField(null=True, blank=True, verbose_name=_("Description"))
+    # description = models.TextField(null=True, blank=True, verbose_name=_("Description"))
+    description = tinymce_models.HTMLField(null=True, blank=True, verbose_name=_("Description"))
 
     class Meta:
         verbose_name = _("Product")
